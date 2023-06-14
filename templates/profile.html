@@ -1,0 +1,469 @@
+{% extends "base.html" %}
+{% block style %}
+<style>
+    .profile {
+    padding: 60px 0;
+    position: relative;
+    width: 100%;
+  }
+
+  .profile .title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px;
+    color: #fff;
+    background-color: #d62872;
+  }
+
+  .profile .title .name {
+    font-size: 12px;
+  }
+
+  .profile .title .name p {
+    margin-bottom: 3px;
+  }
+
+  .profile .title .logout a {
+    display: block;
+    border: 1px solid #fff;
+    color: #fff;
+    border-radius: 3px;
+    padding: 3px 8px;
+    font-size: 14px;
+    text-decoration: none;
+  }
+
+  .coin-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px;
+    color: #fff;
+    background-color: #ab205b;
+    margin-bottom: 16px;
+  }
+
+  .coin-title ul {
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+
+  .coin-title ul li {
+    width: 25%;
+    list-style: none;
+  }
+
+  .coin-title li h4 {
+    margin-bottom: 3px;
+    text-align: center;
+  }
+
+  .coin-title li p {
+    text-align: center;
+    font-size: 14px;
+  }
+
+  .profile-menu,
+  .profile-order {
+    padding: 0 12px;
+    margin-bottom: 16px;
+  }
+
+  .profile-menu ul,
+  .profile-order-item {
+    background-color: #fff;
+    padding: 16px 10px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    padding-bottom: 0;
+  }
+
+  .profile-order-item {
+    margin-bottom: 16px;
+    display: block;
+    padding-bottom: 16px;
+  }
+
+  .profile-menu ul li {
+    width: 25%;
+    list-style: none;
+    text-align: center;
+    margin-bottom: 16px;
+  }
+
+  .profile-menu ul li img {
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+    width: 26px;
+    height: 26px;
+    margin-bottom: 8px;
+  }
+
+  .profile-order .order-no {
+    display: flex;
+    margin-bottom: 10px;
+    justify-content: space-between;
+  }
+
+  .profile-order .order-no p {
+    font-weight: bold;
+    font-size: 14px;
+  }
+
+  .profile-order .order-no span {
+    font-weight: bold;
+    font-size: 14px;
+    color: #d62872;
+  }
+
+  .profile-order .img-group {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 20px 0;
+  }
+
+  .profile-order .img-group img {
+    height: 40px;
+    width: 40px;
+    object-fit: contain;
+    display: block;
+    border: 1px solid #eee;
+    padding: 2px;
+  }
+
+  .profile-order .price {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: bold;
+    font-size: 14px;
+  }
+
+  .profile-order .price a {
+    text-decoration: none;
+    border-radius: 4px;
+    border: 1px solid #d62872;
+    color: #d62872;
+    background-color: #fff;
+    padding: 5px 8px;
+    text-align: center;
+  }
+
+  .message-modal {
+    position: fixed;
+    top: 60px;
+    width: 100%;
+    max-width: 414px;
+    min-height: 100vh;
+    background-color: #fff;
+    display: none;
+    z-index: 1002;
+  }
+
+  .message-input {
+    position: fixed;
+    left: 0;
+    right: 0;
+    max-width: 414px;
+    bottom: 45px;
+    background-color: #eee;
+    padding: 10px 20px;
+    display: none;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3%;
+    z-index: 1001;
+  }
+
+  .message-input input {
+    width: 77%;
+    padding: 6px 10px;
+    border: none;
+    outline: none;
+    background-color: #fff;
+  }
+
+  .message-input button {
+    width: 17%;
+    padding: 4px 10px;
+    text-align: center;
+    border: 1px solid #d62872;
+    color: #d62872;
+    background-color: transparent;
+  }
+
+  .message-content {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    padding-right: 20px;
+    padding-left: 20px;
+    max-height: calc(100vh - 150px);
+    overflow-y: scroll;
+    overscroll-behavior: contain;
+  }
+
+  .message-content .mine p,
+  .message-content .sender p {
+    font-size: 12px;
+    font-weight: bold;
+  }
+
+  .message-content .mine {
+    margin-right: 0;
+    margin-left: auto;
+    text-align: right;
+  }
+
+  .message-content .mine .content {
+    padding: 6px 10px;
+    background-color: #eee;
+    margin-bottom: 20px;
+    font-size: 14px;
+    display: inline-block;
+  }
+
+  .message-content .sender {
+    margin-right: 0;
+    margin-left: auto;
+  }
+
+  .message-content .sender .content {
+    padding: 6px 10px;
+    background-color: #d62872;
+    margin-bottom: 20px;
+    color: #fff;
+    font-size: 14px;
+    display: inline-block;
+  }
+
+  .back {
+    padding: 10px;
+    cursor: pointer;
+    color: #ccc;
+    font-size: 12px;
+    font-weight: bold;
+  }
+</style>
+
+{% endblock %}
+
+{% block main%}
+<div class="profile">
+ <div class="title">
+    <div class="name">
+        <p>{{ session.name }}</p>
+        <span>会员帐号: {{ session.id }}</span>
+    </div>
+    <div class="logout">
+        <a href="/logout">登出</a>
+    </div>
+ </div>
+ <div class="coin-title">
+    <ul>
+        <li>
+            <h4>11</h4>
+            <p>关注数量</p>
+        </li>
+        <li>
+            <h4>7</h4>
+            <p>商品数量</p>
+        </li>
+        <li>
+            <h4>$ 25</h4>
+            <p>红利金</p>
+        </li>
+        <li>
+            <h4>$ 107</h4>
+            <p>优势币</p>
+        </li>
+    </ul>
+ </div>
+ <div class="profile-menu">
+    <ul>
+        <li>
+            <div class="img"><img src="https://image.momoshop.com.tw/ecm/img/cmm/mobile/menu_1-1.png" alt=""></div>
+            <p>订单查询</p>
+        </li>
+        <li>
+            <div class="img"><img src="https://image.momoshop.com.tw/ecm/img/cmm/mobile/menu_1-2.png" alt=""></div>
+            <p>待出货查询</p>
+        </li>
+        <li>
+            <div class="img"><img src="https://image.momoshop.com.tw/ecm/img/cmm/mobile/menu_1-3.png" alt=""></div>
+            <p>出货状况</p>
+        </li>
+        <li>
+            <div class="img"><img src="https://image.momoshop.com.tw/ecm/img/cmm/mobile/menu_1-4.png "alt=""></div>
+            <p>评价</p>
+        </li>
+        <li>
+            <div class="img"><img src="https://image.momoshop.com.tw/ecm/img/cmm/mobile/menu_2-1.png" alt=""></div>
+            <p>商家资讯</p>
+        </li>
+        <li>
+            <div class="img"><img src="https://image.momoshop.com.tw/ecm/img/cmm/mobile/menu_2-2.png" alt=""></div>
+            <p>商品新增</p>
+        </li>
+        <li>
+            <div class="img"><img src="https://image.momoshop.com.tw/ecm/img/cmm/mobile/menu_2-3.png" alt=""></div>
+            <p>折价券</p>
+        </li>
+        <li>
+            <div class="img"><img src="https://image.momoshop.com.tw/ecm/img/cmm/mobile/menu_2-4.png" alt=""></div>
+            <p>已完成订单</p>
+        </li>
+    </ul>
+ </div>
+ <div class="profile-order">
+    {% for item in order_data %}
+    <div class="profile-order-item">
+        <div class="order-no">
+            <p>{{ item.orderNo }}</p>
+            <span>已付款</span>
+        </div>
+        <div class="order-title">
+            <h4>{{ item.product }}</h4>
+        </div>
+        <a href="/detail?oid={{ item.orderNo }}" >
+            <div class="img-group">
+                <img src="{{ item.img_url }}" alt="">
+            </div>
+        </a>
+        <div class="price">
+            <p>¥ {{ item.price }}</p>
+            <a href="#">取消付款</a>
+        </div>
+    </div>
+    {% endfor %}
+ </div>
+</div>
+
+
+ <div class="message-modal">
+    <div class="back">
+        <p class="close"> <- back </p>
+    </div>
+    <div class="message-content">
+        <div class="mine">
+            <p>我</p>
+            <div class="content">
+                你好!
+            </div>
+        </div>
+        
+        <div class="sender">
+            <p>卖家</p>
+            <div class="content">
+                嗨 你好
+            </div>
+        </div>
+    </div>
+    <div class="message-input">
+        <input type="text">
+        <button type="button" class="mine" style="display: none">送出</button>
+        <button type="button" class="sender" style="display: none">送出</button>
+    </div>
+ </div>
+
+
+
+
+</div>
+
+<script>
+    const messageBtn = document.querySelector('.profile-order') 
+    const message = document.querySelector('.message-modal')
+    const message_input = document.querySelector('.message-input')
+    const message_close_btn = document.querySelector('.close')
+    const message_mine_btn = document.querySelector('.message-input .mine')
+    const message_sender_btn = document.querySelector('.message-input .sender')
+
+
+    messageBtn.addEventListener('click', function(event ) {
+    if (event.target.nodeName == 'SPAN'){
+        message.style.display = 'block'
+        message_input.style.display = 'flex'
+        message_mine_btn.style.display = 'block'
+    } else if (event.target.nodeName == 'P') {
+        message.style.display = 'block'
+        message_input.style.display = 'flex'
+        message_sender_btn.style.display = 'block'
+    }
+
+    })
+
+    message_close_btn.addEventListener('click', function(event ) {
+        message.style.display = 'none'
+        message_input.style.display = 'none'
+        message_sender_btn.style.display = 'none'
+        message_mine_btn.style.display = 'none'
+    })
+
+    message_mine_btn.addEventListener('click', function(event) {
+        const mineNode = document.createElement('div')
+        mineNode.classList.add('mine')
+        //<div class="mine"></div>
+        const minePragraph = document.createElement('p')
+        minePragraph.textContent = '我'
+        // <p> 我 </p>
+
+        const mineContent = document.createElement('div')
+        mineContent.classList.add('content')
+        mineContent.textContent = document.querySelector('.message-input input').value
+        // <div class="content">请问还有货吗？</div>
+
+        mineNode.appendChild(minePragraph)
+        mineNode.appendChild(mineContent)
+
+        if (document.querySelector('.message-input input').value == '') return;
+        
+        const message_content = document.querySelector('.message-content')
+        message_content.appendChild(mineNode)
+        document.querySelector('.message-input input').value = ''
+
+        message_content.scrollTop = message_content.scrollHeight
+    
+
+    })
+    message_sender_btn.addEventListener('click', function(event) {
+        const senderNode = document.createElement('div')
+        senderNode.classList.add('sender')
+        //<div class="sender"></div>
+        const senderPragraph = document.createElement('p')
+        senderPragraph.textContent = '卖家'
+        // <p> 我 </p>
+
+        const senderContent = document.createElement('div')
+        senderContent.classList.add('content')
+        senderContent.textContent = document.querySelector('.message-input input').value
+        // <div class="content">请问还有货吗？</div>
+
+        senderNode.appendChild(senderPragraph)
+        senderNode.appendChild(senderContent)
+
+        if (document.querySelector('.message-input input').value == '') return;
+        
+        const message_content = document.querySelector('.message-content')
+        message_content.appendChild(senderNode)
+        document.querySelector('.message-input input').value = ''
+
+
+        message_content.scrollTop = message_content.scrollHeight
+    
+        
+    })
+
+
+
+</script>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+
+{% block main%}
+<div class="login">
+    <form action="/" method="POST">
+      <h1>momo 會員登入</h1>
+      <div class="form-control">
+        <span>帳號</span>
+        <input type="text" placeholder="手機/身分證字號/統一證號" name="account">
+      </div>
+      <div class="form-control">
+        <span>密碼</span>
+        <input type="password" placeholder="6-15位英數字混合密碼，英文需區分大小寫" name="password">
+      </div>
+      <button type="submit">登入</button>
+    </form>
+  </div>
+{% endblock %}

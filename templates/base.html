@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block tittle %} {% endblock %}</title>
+    <link rel="stylesheet" href="/css/all.css" class="css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" class="css">
+
+    {% block style %}
+    {% endblock %}
+    <style>
+        .cart_count {
+            position: absolute;
+            right: 15%;
+            top: 0;
+            height: 16px;
+            width: 16px;
+            border-radius: 50%;
+            color: #fff;
+            font-weight: bold;
+            background-color: red;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="/search">
+            <div class="humber">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </a>
+        
+        <div class="logo">
+            <img src="http://www.yishuzi.cn/image.png?fsize=30&font=hsjg.ttf&text=%E4%BC%98%E5%8A%BF%E7%82%B9&mirror=no&color=f16c4d&vcolor=f16c4d&bgcolor=fee8a5&alpha=no&output=png&spacing=4&shadow=no&transparent=no&icon=no&iconic=&top_spacing=5&left_spacing=6&icon_size=48"alt="">
+        </div>
+        <div class="space"></div>
+    </div>
+    
+
+
+
+
+    <div class="container">
+        {% block main %}
+        {% endblock %}
+
+    </div>
+
+
+
+
+    
+    {% if 'id' in session %}
+    <div class="menu-bar" >
+        <div class="item home_route" style="cursor: pointer;">
+            <div class="img">
+                <img src="https://image.momoshop.com.tw/ecm/img/cmm/mobile/main/footer_01.svg" alt="">
+            </div>
+            <a href="">首页</a>
+        </div>
+        <div class="item">
+            <div class="img">
+                <img src="https://image.momoshop.com.tw/ecm/img/cmm/mobile/main/footer_02.svg" alt="">
+            </div>
+            <a href="">热销品</a>
+        </div>
+        <div class="item">
+            <div class="img">
+                <img src="https://image.momoshop.com.tw/ecm/img/cmm/mobile/main/footer_03.svg" alt="">
+            </div>
+            <a href="">追踪清单</a>
+        </div>
+        <div class="item cart_list" style="position: relative; cursor: pointer;">
+            <div class="cart_count">0</div>
+            <div class="img">
+                <img src="https://image.momoshop.com.tw/ecm/img/cmm/mobile/main/footer_04.svg" alt="">
+            </div>
+            <a href="">购物车</a>
+        </div>
+        <div class="item">
+            <div class="img">
+                <img src="https://image.momoshop.com.tw/ecm/img/cmm/mobile/main/footer_05.svg" alt="">
+            </div>
+            <a href="/profile">会员中心</a>
+
+        </div>
+    </div>
+    {% endif %}
+    <script>
+        const cart_route = document.querySelector('.cart_list')
+        const home_route = document.querySelector('.home_route')
+        cart_route.addEventListener('click',(e)=> {
+            location.href = '/cart'
+        })
+        home_route.addEventListener('click',(e)=> {
+            location.href = '/home'
+        })
+        function render_cart(){
+            let cart_list = JSON.parse(localStorage.getItem('cart')) || []
+            if (cart_list.length > 0) {
+                document.querySelector('.cart_count').textContent = cart_list.length
+            } else {
+                document.querySelector('.cart_count').textContent = 0
+            }
+        }
+        render_cart()
+    </script>
+
+</body>
+</html>

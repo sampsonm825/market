@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品搜寻</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" class="css">
+
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        body {
+            background-color: #000;
+        }
+        .search {
+            max-width: 414px;
+            position: relative;
+            background-color: #ddd;
+            margin: 0 auto;
+        }
+
+        .search-header {
+            position: fixed;
+            max-width: 414px;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            background-color: #fff;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            top: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            z-index: 1000;
+        }
+        .search-header h2 {
+            flex: 1 0 auto;
+            font-size: 18px;
+            font-weight: normal;
+            color: #454545;
+            text-align: center;
+        }
+        .search-header a {
+            width: 34px;
+            height: 34px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .search-header a i {
+            font-size: 16px;
+            color: #454545;
+        }
+        .search-menu{
+            position: absolute;
+            width: 75px;
+            left: 0;
+            top: 0;
+            background-color: #fff;
+            overflow-y: scroll;
+            height: calc(100vh - 54px);
+        }
+        .search-menu ul {
+            padding-bottom: 20px;
+            padding-top:  0;
+        }
+        .search-menu ul li {
+            padding: 20px 5px;
+            font-size: 12px;
+        }
+        .search-menu ul li.active {
+            color: #d62872;
+            background-color: #ddd;
+            border-radius: 10px 0 0 10px;
+            font-weight: bold;
+        }
+        .brand {
+            padding-top:  20px;
+            padding-left: 85px;
+            padding-right: 10px;
+            margin-top: 54px;
+            height: calc(100vh - 54px);
+            overflow-y: scroll;
+        }
+        .brand-item {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            padding: 8px 8px 10px 8px;
+            margin-bottom: 16px;
+        }
+        .brand-item h3{
+            font-weight: bold;
+            font-size: 18px;
+            padding-left: 8px;
+        }
+        .brand-content {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .brand-content li {
+            list-style: none;
+            width: 33.33333%;
+            margin-bottom: 10px;
+        }
+        .brand-content li a{
+            display: block;
+        }
+        .brand-content li img {
+            width: 100%;
+            object-fit: contain;
+            display: block;
+        }
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+         
+    </style>
+</head>
+<body>
+    <div class="search">
+        <div class="search-header">
+            <a href="/">
+                <i class="fa-solid fa-xmark"></i>
+            </a>
+            <h2>商品分类</h2>
+            <a href="/">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </a>
+        </div>
+        <div class="search-menu">
+            <ul>
+                <li class="active">品牌总览</li>
+                <li>品牌总览</li>
+                <li>品牌总览</li>
+                <li>品牌总览</li>
+                <li>品牌总览</li>
+                <li>品牌总览</li>
+                <li>品牌总览</li>
+                <li>品牌总览</li>
+                <li>品牌总览</li>
+                <li>品牌总览</li>
+                <li>品牌总览</li>
+                <li>品牌总览</li>
+                <li>品牌总览</li>
+                <li>品牌总览</li>
+                <li>品牌总览</li>
+            </ul>
+        </div>
+        <div class="brand">
+            <div class="brand-item">
+                <h3>综合名店</h3>
+                <ul class="brand-content">
+                    <li>
+                        <a href="#">
+                            <img src="https://img3.momoshop.com.tw/ecm/img/online/brand/20160808155724602.jpg?t=1639592273" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="https://img3.momoshop.com.tw/ecm/img/online/brand/20160808155724602.jpg?t=1639592273" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="https://img3.momoshop.com.tw/ecm/img/online/brand/20160808155724602.jpg?t=1639592273" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="https://img3.momoshop.com.tw/ecm/img/online/brand/20160808155724602.jpg?t=1639592273" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="https://img3.momoshop.com.tw/ecm/img/online/brand/20160808155724602.jpg?t=1639592273" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="https://img3.momoshop.com.tw/ecm/img/online/brand/20160808155724602.jpg?t=1639592273" alt="">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="brand-item">
+                <h3>综合名店</h3>
+                <ul class="brand-content">
+                    <li>
+                        <a href="#">
+                            <img src="https://img3.momoshop.com.tw/ecm/img/online/brand/20160808155724602.jpg?t=1639592273" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="https://img3.momoshop.com.tw/ecm/img/online/brand/20160808155724602.jpg?t=1639592273" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="https://img3.momoshop.com.tw/ecm/img/online/brand/20160808155724602.jpg?t=1639592273" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="https://img3.momoshop.com.tw/ecm/img/online/brand/20160808155724602.jpg?t=1639592273" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="https://img3.momoshop.com.tw/ecm/img/online/brand/20160808155724602.jpg?t=1639592273" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="https://img3.momoshop.com.tw/ecm/img/online/brand/20160808155724602.jpg?t=1639592273" alt="">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="brand-item">
+                <h3>综合名店</h3>
+                <ul class="brand-content">
+                    <li>
+                        <a href="#">
+                            <img src="https://img3.momoshop.com.tw/ecm/img/online/brand/20160808155724602.jpg?t=1639592273" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="https://img3.momoshop.com.tw/ecm/img/online/brand/20160808155724602.jpg?t=1639592273" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="https://img3.momoshop.com.tw/ecm/img/online/brand/20160808155724602.jpg?t=1639592273" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="https://img3.momoshop.com.tw/ecm/img/online/brand/20160808155724602.jpg?t=1639592273" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="https://img3.momoshop.com.tw/ecm/img/online/brand/20160808155724602.jpg?t=1639592273" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="https://img3.momoshop.com.tw/ecm/img/online/brand/20160808155724602.jpg?t=1639592273" alt="">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="brand-item">
+                <h3>综合名店</h3>
+                <ul class="brand-content">
+                    <li>
+                        <a href="#">
+                            <img src="https://img3.momoshop.com.tw/ecm/img/online/brand/20160808155724602.jpg?t=1639592273" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="https://img3.momoshop.com.tw/ecm/img/online/brand/20160808155724602.jpg?t=1639592273" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="https://img3.momoshop.com.tw/ecm/img/online/brand/20160808155724602.jpg?t=1639592273" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="https://img3.momoshop.com.tw/ecm/img/online/brand/20160808155724602.jpg?t=1639592273" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="https://img3.momoshop.com.tw/ecm/img/online/brand/20160808155724602.jpg?t=1639592273" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="https://img3.momoshop.com.tw/ecm/img/online/brand/20160808155724602.jpg?t=1639592273" alt="">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

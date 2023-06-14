@@ -1,0 +1,167 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: black;
+}
+.container {
+    max-width: 414px;
+    position: relative;
+    background-color: #eee;
+    margin: 0 auto;
+
+}
+
+.header {
+    height: 60px;
+    position: fixed;
+    max-width: 414px;   
+    left: 0;
+    right: 0;
+    top: 0;
+    margin: 0 auto;
+    background-color: #fee8a5;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+}
+
+.header .logo {
+    width: 30%;
+}
+.header .logo img{
+    display: block;
+    object-fit: contain;
+}
+.header a{
+    display: block;
+}
+.header a i {
+    color: #ccc;
+    font-size: 24px;
+    padding: 0 10px;
+}
+.header .humber {
+    width: 40px;
+}
+.header .humber .line {
+    height: 2px;
+    width: 25px;
+    margin: 0 auto;
+    background-color: #ccc;
+    box-shadow: 0 8px 0 0 #ccc, 0 -8px 0 0 #ccc;
+}
+.header .space {
+    width: 40px;
+}
+
+.menu-bar {
+    max-width: 414px;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    z-index: 1003;
+    background-color: #fee8a5;
+}
+.menu-bar .item {
+    width: calc(100% / 5);
+
+}
+
+.menu-bar .item a{
+    text-align: center;
+    text-decoration: none;
+    color: #000000;
+    padding-top: 3px;
+    font-size: 12px;
+    display: block;
+}
+.menu-bar .img img{
+    display: block;
+    margin: 0 auto;
+}
+.login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow-y: scroll;
+  }
+  
+  form {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: -30px;
+  }
+  
+  form h1 {
+    font-size: 20px;
+    font-weight: 500;
+    color: #D62872;
+    letter-spacing: 1.3px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .form-control {
+    width: 90%;
+    margin: 0 auto;
+    position: relative;
+    padding-bottom: 16px;
+  }
+  .form-control input {
+    width: 100%;
+    padding-left: 50px;
+    padding-right: 2px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    font-size: 14px;
+    border: 0;
+    outline: 0;
+  }
+  .form-control span {
+    position: absolute;
+    display: block;
+    left: 2px;
+    bottom: 0;
+    top: 0;
+    font-size: 12px;
+    text-align: center;
+    margin: auto;
+    padding-left: 5px;
+    padding-top: 11px;
+  }
+  
+  
+  form button {
+    outline: 0;
+    border: 0;
+    box-shadow: 0;
+    width: 90%;
+    margin: 0 auto;
+    background-color: #D62872;
+    color: #fff;
+    font-size: 20px;
+    padding: 5px 0;
+    display: block;
+  }
+.home {
+
+    padding-top: 60px;
+    padding-bottom: 60px;
+
+}
+.home h1{
+    text-align: center;
+    font-size: 24px;
+    padding-top: 80px;
+
+}
