@@ -59,6 +59,14 @@ def home():
  else :
   return redirect('/')
  
+@app.route('/logout',methods=['GET', 'POST'])
+def logout():
+ if 'id' in session:
+   session.clear()
+   return redirect('/')
+
+
+ 
 @app.route('/checkout',methods=['GET', 'POST'])
 def checkout():
  if 'id' in session:
