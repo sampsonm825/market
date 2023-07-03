@@ -5,21 +5,26 @@
   body {
     background: #fff;
   }
+
   ul {
     list-style: none;
     display: flex;
     gap: 1%;
   }
+
   .container {
     background-color: #fff;
   }
+
   .product-detail {
     padding-top: 60px;
   }
+
   .product-detail .p-img {
     width: 90%;
     margin: 0 auto;
   }
+
   .product-detail .p-img h4 {
     font-weight: bold;
     font-style: 15px;
@@ -32,18 +37,22 @@
     color: #484848;
     text-align-last: left;
   }
-  .product-detail .p-img img{
+
+  .product-detail .p-img img {
     object-fit: contain;
     width: 100%;
     display: block;
     height: 400px;
-}
-.prdDetail {
+    margin: 0 auto;
+  }
+
+  .prdDetail {
     border-top: 1px solid #F2F2F2;
     border-bottom: 1px solid #F2F2F2;
     position: relative;
     margin-top: 30px;
   }
+
   table {
     display: table;
     border-collapse: separate;
@@ -52,37 +61,45 @@
     border-spacing: 2px;
     border-color: gray;
   }
+
   tbody {
     display: table-row-group;
     vertical-align: middle;
     border-color: inherit;
   }
+
   tr {
     display: table-row;
     vertical-align: inherit;
     border-color: inherit;
   }
+
   th {
     display: table-cell;
     vertical-align: inherit;
     font-weight: bold;
     text-align: -internal-center;
   }
+
   .prdDetail th {
     background-color: #DFDFDF;
     text-align: right;
     white-space: nowrap;
     width: 80px;
   }
-  .prdDetail th, .prdDetail td {
+
+  .prdDetail th,
+  .prdDetail td {
     font: 15px/36px Helvetica, sans-serif;
     color: #000000;
     text-align: left;
     padding: 0px 5px;
   }
+
   .prdDetail .priceArea {
     position: relative;
   }
+
   .prdDetail td .shippingArea dd {
     display: inline-block;
     margin: 0px;
@@ -96,6 +113,7 @@
     font: 13px/36px Helvetica, sans-serif;
     color: #888;
   }
+
   .prdDetail td .shippingArea .shippingTip {
     display: inline-block;
     margin: 0px 5px 0px 0px;
@@ -104,26 +122,32 @@
     font: 15px/36px Helvetica, sans-serif;
     color: #000;
   }
+
   .prdDetail td {
     border-bottom: 1px solid #eee;
   }
+
   .prdDetail td .shippingArea {
     position: relative;
   }
+
   .prdDetail td .shippingArea dt {
     position: absolute;
     right: 5px;
     top: calc((100% - 15px) / 2);
   }
+
   .product-desc {
     margin: 20px;
     padding-bottom: 100px;
-}
+  }
+
   .product-image img {
     max-width: 100%;
     object-fit: contain;
     display: block;
   }
+
   .product-detail-footer {
     position: fixed;
     bottom: 0;
@@ -190,72 +214,82 @@
     margin-right: 30px;
   }
 
+  .favor i {
+    transition: .5s;
+  }
+
+  .favor i.is_favor {
+    color: red;
+  }
 </style>
 {% endblock %}
 
 {% block main%}
 <div class="product-detail">
-    <div class="p-img">
-        <img src="https://i3.momoshop.com.tw/1682591577/goodsimg/0006/902/798/6902798_R.webp" alt="">
-        <h4>【快車肉乾】杏仁香脆肉紙X3包132g-145g(口味任選)</h4>
-    </div>
-    <table class="prdDetail bookDtail" border="0" cellspacing="0" width="100%">
-       <tbody>
-        <tr>
-            <th>折扣后价格</th>
-            <td class="priceArea" style="display: flex; align-items: center; justify-content: space-between;">
-                <p class="priceTxtArea">
-                        <b>549</b>元                 
-                </p>
-                <div class="iconArea">
-                    <a id="hc_fast_01" title="快速到货" alt="快速到货"
-                    href="https://m.momoshop.com.tw/edm.momo?npn=1vEK6PK2ugSG&amp;n=0" style="display: flex; align-items: center; flex-direction: column; justify-content: center;" >
-                    <img class="imgPrompt"  src="https://image.momoshop.com.tw/ecm/img/cmm/goodsdetail/FastDely.png?env=O&amp;t=20210720004" height="38" >     
+  <div class="p-img">
+    <img src="https://i3.momoshop.com.tw/1682591577/goodsimg/0006/902/798/6902798_R.webp" alt="">
+    <h4>【快車肉乾】杏仁香脆肉紙X3包132g-145g(口味任選)</h4>
+  </div>
+  <table class="prdDetail bookDtail" border="0" cellspacing="0" width="100%">
+    <tbody>
+      <tr>
+        <th>折扣后价格</th>
+        <td class="priceArea" style="display: flex; align-items: center; justify-content: space-between;">
+          <p class="priceTxtArea">
+            <b>549</b>元
+          </p>
+          <div class="iconArea">
+            <a id="hc_fast_01" title="快速到货" alt="快速到货"
+              href="https://m.momoshop.com.tw/edm.momo?npn=1vEK6PK2ugSG&amp;n=0"
+              style="display: flex; align-items: center; flex-direction: column; justify-content: center;">
+              <img class="imgPrompt"
+                src="https://image.momoshop.com.tw/ecm/img/cmm/goodsdetail/FastDely.png?env=O&amp;t=20210720004"
+                height="38">
 
-                    </a>
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <th valign="top">促销价</th>
-            <td class="setpriceArea">
-                <del>798</del>
-            </td>
-        </tr>
-        <tr>
-            <th valign="top">品牌名称</th>
-            <td class="brandNameMode arrowBlock">
-                <p>
-                    快车肉干 <a href="#" id="brandTrackStatus" class="untracking">追踪</a>
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <th valign="top">付款方式</th>
-            <td class="paymentMode">
-                <ul>
-                    <li>
-                        <span class="payCredit">信用卡</span>
-                    </li>
-                    <li>
-                        <span>/</span>
-                        <span class="payCredit">无卡分期</span>
-                    </li>
-                    <li>
-                        <span>/</span>
-                        <span class="payCredit">行动支付</span>
-                    </li>
-                    <li>
-                        <span>/</span>
-                        <span class="payCredit">银联卡</span>
-                    </li>
-                </ul>
-                <a class="cardDetail" id="cardDetail" href="#">
-                  银行转账免 3%手续费
-                </a>             
-            </td>
-        </tr>
-        <!-- <tr class="delyMethod">
+            </a>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <th valign="top">促销价</th>
+        <td class="setpriceArea">
+          <del>798</del>
+        </td>
+      </tr>
+      <tr>
+        <th valign="top">品牌名称</th>
+        <td class="brandNameMode arrowBlock">
+          <p>
+            快车肉干 <a href="#" id="brandTrackStatus" class="untracking">追踪</a>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <th valign="top">付款方式</th>
+        <td class="paymentMode">
+          <ul>
+            <li>
+              <span class="payCredit">信用卡</span>
+            </li>
+            <li>
+              <span>/</span>
+              <span class="payCredit">无卡分期</span>
+            </li>
+            <li>
+              <span>/</span>
+              <span class="payCredit">行动支付</span>
+            </li>
+            <li>
+              <span>/</span>
+              <span class="payCredit">银联卡</span>
+            </li>
+          </ul>
+          <a class="cardDetail" id="cardDetail" href="#">
+            银行转账免 3%手续费
+          </a>
+        </td>
+      </tr>
+      <!-- <tr class="delyMethod">
             <th valign="top">配送方式</th>
             <td class="delivery" colsoan="2">
                 <ul>
@@ -270,136 +304,234 @@
                 </ul>         
             </td>
         </tr> -->
-        <tr id="delyInfoTr">
-            <th class="jsDelyTitle" valign="top">配送方式</th>
-            <td>
-                <dl class="shippingTip" style="width: 295px;">
-                    <dd><span class="shippingTip">快速到货</span>未满 $1000 运费$75</dd>
-                    <dd><span class="shippingTip">24hr到货</span>金额满$1000 运费$50</dd>
-                    <dt>
-                        <img src="https://m.momoshop.com.tw/ecm/img/cmm/mobile/arrow_down.png" width="15px" height="15px">
-                    </dt>
-                </dl>
-            </td>
-        </tr>
-        <tr class="InstallmentsData">
-            <th valign="top">分期/紅利</th>
-            <td class="creditCardInstallments">
-              <table width="100%" cellspacing="0" cellpadding="0">
-    
-                <thead id="installments_first">
-                  <tr>
-                    <td>分期數</td>
-                    <td>每期金額</td>
-                    <td>配合銀行</td>
-                  </tr>
-                  <tr id="firstInstallmentsItem">
-                    <td>24&nbsp;期&nbsp;0&nbsp;利率&nbsp;</td>
-                    <td>每期<span><b>1,666</b></span>元</td>
-                    <td><a href="javascript:void(0)" class="collaborateBank" onclick="openBankList(24, 0)">14家銀行</a></td>
-                  </tr>
-                  <tr>
-                  </tr>
-                  <tr>
-                    <th id="goodsmore" colspan="3" style="display: none;">更多<span></span></th>
-                  </tr>
-                </thead>
-                <tbody id="installments" class="installments" style="display: table-row-group;">
-                  <tr>
-                    <td>12&nbsp;期&nbsp;0&nbsp;利率&nbsp;</td>
-                    <td>每期<span><b>3,332</b></span>元</td>
-                    <td><a href="javascript:void(0)" class="collaborateBank" onclick="openBankList(12, 0)">17家銀行</a></td>
-                  </tr>
-                  <tr>
-                    <td>6&nbsp;期&nbsp;0&nbsp;利率&nbsp;</td>
-                    <td>每期<span><b>6,665</b></span>元</td>
-                    <td><a href="javascript:void(0)" class="collaborateBank" onclick="openBankList(6, 0)">24家銀行</a></td>
-                  </tr>
-                  <tr>
-                    <td>3&nbsp;期&nbsp;0&nbsp;利率&nbsp;</td>
-                    <td>每期<span><b>13,330</b></span>元</td>
-                    <td><a href="javascript:void(0)" class="collaborateBank" onclick="openBankList(3, 0)">25家銀行</a></td>
-                  </tr>
-                  <tr>
-                    <td>9&nbsp;期</td>
-                    <td>每期<span><b>4665</b></span>元</td>
-                    <td><a href="javascript:void(0)" class="collaborateBank" onclick="openBankList(9, 5)">15家銀行</a></td>
-                  </tr>
-                  <tr>
-                    <td>紅利折抵</td>
-                    <td>--</td>
-                    <td><a href="https://www.momoshop.com.tw/edm/edm.jsp?npn=1vEJ93lB8I6A&amp;n=1"
-                        target="_blank">共22家銀行</a></td>
-                  </tr>
-                </tbody>
-              </table>
-            </td>
-          </tr>
-          <tr style="display: none;">
-            <th>
-              商品規格</th>
-            <td colspan="2">
-              <input type="hidden" id="goodsSpec" name="goodsSpec" value="001" amt="14" days="2" delyflag="0" delyno="19"
-                delyfrom="" delyend="" delycount="">
-              <input type="hidden" id="goodsSpec_tmp" name="goodsSpec_tmp" value="001" amt="14" days="2" delyflag="0"
-                delyno="19" delyfrom="" delyend="" delycount="" index="1">
-              <a class="itemboxBtn_fix" id="specBoxBtn">
-                <i>請選擇 商品規格</i></a>
-            </td>
-          </tr>
-          <tr style="display:none;">
-            <th valign="top">
-              數量</th>
-            <td colspan="2" id="goodsCntTd">
-              <select id="goodsCnt" name="goodsCnt" class="CompareSel" tmpcnt="1">
-                <option value="1">1</option>
-              </select>
-              <span id="limitText">
-                會員專屬每人限購1組(僅限下單一次)<span id="remainingText"></span>
-              </span>
-              <span></span>
-            </td>
-          </tr>
-          <tr>
-            <th valign="top">
-              折價券</th>
-            <td class="coupons">
-              <a class="showCoupon" style="color:#3366FF">查看可使用的折價券</a>
-            </td>
-          </tr>
-       </tbody> 
-    </table>
-    <div class="product-desc">
-        <div class="product-image">
-          <img src="https://img1.momoshop.com.tw/expertimg/0010/352/999/mobile/LP01.jpg?t=1664163433657" alt="">
-        </div>
-        <div class="product-image">
-          <img src="https://img1.momoshop.com.tw/expertimg/0010/352/999/mobile/LP02.jpg?t=1664163433657" alt="">
-        </div>
-        <div class="product-image">
-          <img src="https://img1.momoshop.com.tw/expertimg/0010/352/999/mobile/LP03.jpg?t=1664163433657" alt="">
-        </div>
-      </div>
+      <tr id="delyInfoTr">
+        <th class="jsDelyTitle" valign="top">配送方式</th>
+        <td>
+          <dl class="shippingTip" style="width: 295px;">
+            <dd><span class="shippingTip">快速到货</span>未满 $1000 运费$75</dd>
+            <dd><span class="shippingTip">24hr到货</span>金额满$1000 运费$50</dd>
+            <dt>
+              <img src="https://m.momoshop.com.tw/ecm/img/cmm/mobile/arrow_down.png" width="15px" height="15px">
+            </dt>
+          </dl>
+        </td>
+      </tr>
+      <tr class="InstallmentsData">
+        <th valign="top">分期/紅利</th>
+        <td class="creditCardInstallments">
+          <table width="100%" cellspacing="0" cellpadding="0">
 
-      <div class="product-detail-footer">
-        <div class="favor">
-            <span>
-                <i class="fa-solid fa-heart"></i>
-            </span>
-            <p>加入追踪</p>
-        </div>
-        <div class="cart" style="position: relative; cursor: pointer;">
-            <div class="cart_count" style="right: 3%; top:-15%">0</div>
-            <span>
-                <i class="fa-solid fa-cart-shopping"></i>
-            </span>
-            <p>购物车</p>
-        </div>
-        <a href="javascript:;" class="cart-btn">加入购物车</a>
-        <a href="javascript:;" class="buy-btn">直接购买</a>
-      </div>
+            <thead id="installments_first">
+              <tr>
+                <td>分期數</td>
+                <td>每期金額</td>
+                <td>配合銀行</td>
+              </tr>
+              <tr id="firstInstallmentsItem">
+                <td>24&nbsp;期&nbsp;0&nbsp;利率&nbsp;</td>
+                <td>每期<span><b>1,666</b></span>元</td>
+                <td><a href="javascript:void(0)" class="collaborateBank" onclick="openBankList(24, 0)">14家銀行</a></td>
+              </tr>
+              <tr>
+              </tr>
+              <tr>
+                <th id="goodsmore" colspan="3" style="display: none;">更多<span></span></th>
+              </tr>
+            </thead>
+            <tbody id="installments" class="installments" style="display: table-row-group;">
+              <tr>
+                <td>12&nbsp;期&nbsp;0&nbsp;利率&nbsp;</td>
+                <td>每期<span><b>3,332</b></span>元</td>
+                <td><a href="javascript:void(0)" class="collaborateBank" onclick="openBankList(12, 0)">17家銀行</a></td>
+              </tr>
+              <tr>
+                <td>6&nbsp;期&nbsp;0&nbsp;利率&nbsp;</td>
+                <td>每期<span><b>6,665</b></span>元</td>
+                <td><a href="javascript:void(0)" class="collaborateBank" onclick="openBankList(6, 0)">24家銀行</a></td>
+              </tr>
+              <tr>
+                <td>3&nbsp;期&nbsp;0&nbsp;利率&nbsp;</td>
+                <td>每期<span><b>13,330</b></span>元</td>
+                <td><a href="javascript:void(0)" class="collaborateBank" onclick="openBankList(3, 0)">25家銀行</a></td>
+              </tr>
+              <tr>
+                <td>9&nbsp;期</td>
+                <td>每期<span><b>4665</b></span>元</td>
+                <td><a href="javascript:void(0)" class="collaborateBank" onclick="openBankList(9, 5)">15家銀行</a></td>
+              </tr>
+              <tr>
+                <td>紅利折抵</td>
+                <td>--</td>
+                <td><a href="https://www.momoshop.com.tw/edm/edm.jsp?npn=1vEJ93lB8I6A&amp;n=1"
+                    target="_blank">共22家銀行</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+      <tr style="display: none;">
+        <th>
+          商品規格</th>
+        <td colspan="2">
+          <input type="hidden" id="goodsSpec" name="goodsSpec" value="001" amt="14" days="2" delyflag="0" delyno="19"
+            delyfrom="" delyend="" delycount="">
+          <input type="hidden" id="goodsSpec_tmp" name="goodsSpec_tmp" value="001" amt="14" days="2" delyflag="0"
+            delyno="19" delyfrom="" delyend="" delycount="" index="1">
+          <a class="itemboxBtn_fix" id="specBoxBtn">
+            <i>請選擇 商品規格</i></a>
+        </td>
+      </tr>
+      <tr style="display:none;">
+        <th valign="top">
+          數量</th>
+        <td colspan="2" id="goodsCntTd">
+          <select id="goodsCnt" name="goodsCnt" class="CompareSel" tmpcnt="1">
+            <option value="1">1</option>
+          </select>
+          <span id="limitText">
+            會員專屬每人限購1組(僅限下單一次)<span id="remainingText"></span>
+          </span>
+          <span></span>
+        </td>
+      </tr>
+      <tr>
+        <th valign="top">
+          折價券</th>
+        <td class="coupons">
+          <a class="showCoupon" style="color:#3366FF">查看可使用的折價券</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="product-desc">
+    <div class="product-image">
+      <img src="https://img1.momoshop.com.tw/expertimg/0010/352/999/mobile/LP01.jpg?t=1664163433657" alt="">
+    </div>
+    <div class="product-image">
+      <img src="https://img1.momoshop.com.tw/expertimg/0010/352/999/mobile/LP02.jpg?t=1664163433657" alt="">
+    </div>
+    <div class="product-image">
+      <img src="https://img1.momoshop.com.tw/expertimg/0010/352/999/mobile/LP03.jpg?t=1664163433657" alt="">
+    </div>
+  </div>
+
+  <div class="product-detail-footer">
+    <div class="favor">
+      <span>
+        <i class="fa-solid fa-heart"></i>
+      </span>
+      <p>加入追踪</p>
+    </div>
+    <div class="cart" style="position: relative; cursor: pointer;">
+      <div class="cart_count" style="right: 3%; top:-15%">0</div>
+      <span>
+        <i class="fa-solid fa-cart-shopping"></i>
+      </span>
+      <p>购物车</p>
+    </div>
+    <a href="javascript:;" class="cart-btn">加入购物车</a>
+    <a href="/home" class="buy-btn">回首页</a>
+  </div>
 </div>
 <script>
+  const tempProduct = JSON.parse(localStorage.getItem('productList'))
+  const id = location.href.split('?')[1].split('=')[1]
+  const index = tempProduct.findIndex(p => p.id == id)
+  const product_desc = document.querySelector('.product-desc')
+  const p_img = document.querySelector('.p-img')
+  const priceTxtArea = document.querySelector('.priceTxtArea')
+  const setpriceArea = document.querySelector('.setpriceArea')
+
+  let favor_list = JSON.parse(localStorage.getItem('favorList')) || []
+  let favor_index = favor_list.findIndex(item => item.p_id == tempProduct[index].id)
+  console.log(favor_index)
+
+  if (favor_index != -1) {
+    const favor_icon = document.querySelector('.favor i')
+    const favor_desc = document.querySelector('.favor p')
+    favor_icon.classList.add('is_favor')
+    favor_desc.textContent = '取消追踪'
+
+  }
+
+  const favorBtn = document.querySelector('.favor')
+  favorBtn.addEventListener('click', (e) => {
+    const favor_icon = document.querySelector('.favor i')
+    const favor_desc = document.querySelector('.favor p')
+    let favor_index = favor_list.findIndex(item => item.p_id == tempProduct[index].id)
+    if (favor_index == -1) {
+      favor_list.push({
+        "p_id": tempProduct[index].id,
+        "p_name": tempProduct[index].p_name,
+        "p_price": tempProduct[index].p_price,
+        "p_img": tempProduct[index].p_img,
+      })
+      favor_icon.classList.add('is_favor')
+      favor_desc.textContent = '取消追踪'
+
+      Swal.fire({
+        title: '加追踪清单',
+        text: '成功',
+        icon: 'success',
+        confirmButtontext: '确定',
+        customClass: {
+          container: 'my-swal-container',
+          popup: 'my-swal-popup',
+          center: 'my-swal-center'
+        }
+      })
+    } else {
+      favor_list.splice(favor_index, 1)
+      favor_icon.classList.remove('is_favor')
+      favor_desc.textContent = '加入追踪'
+
+      Swal.fire({
+        title: '取消追踪',
+        text: '成功',
+        icon: 'success',
+        confirmButtontext: '确定',
+        customClass: {
+          container: 'my-swal-container',
+          popup: 'my-swal-popup',
+          center: 'my-swal-center'
+        }
+      })
+    }
+    localStorage.setItem('favorList', JSON.stringify(favor_list))
+  })
+
+
+
+
+
+
+
+
+
+
+
+  let product_desc_html = ``
+  tempProduct[index].p_descImg.forEach(item => {
+    product_desc_html += `
+      <div class="product-image">
+        <img src="${item}" alt="">
+      </div>
+    `
+  })
+  product_desc.innerHTML = product_desc_html
+  p_img.innerHTML = `
+    <img src="${tempProduct[index].p_img}" alt="">
+    <h4>${tempProduct[index].p_name}</h4>
+  `
+  priceTxtArea.innerHTML = `
+    <b>${tempProduct[index].p_price}</b>元
+  `
+  setpriceArea.innerHTML = `
+    <del>${tempProduct[index].p_price + tempProduct[index].p_price}元</del>
+  `
+
+
+
   const cartBtn = document.querySelector('.cart-btn');
   const cart_route_sub = document.querySelector('.cart')
   cart_route_sub.addEventListener('click', (e) => {
@@ -407,18 +539,30 @@
   })
 
   cart_list = JSON.parse(localStorage.getItem('cart')) || []
-  cartBtn.addEventListener('click', (e) =>{
+  cartBtn.addEventListener('click', (e) => {
     const randomNumber = Math.floor(100000000 + Math.random() * 900000000)
     cart_list.push({
       "id": randomNumber,
-      "p_name": '【快車肉乾】杏仁香脆肉紙X3包132g-145g(口味任選)', 
-      "p_price": 549,
-      "p_img": "https://i3.momoshop.com.tw/1682591577/goodsimg/0006/902/798/6902798_R.webp",
+      "p_name": tempProduct[index].p_name,
+      "p_price": tempProduct[index].p_price,
+      "p_img": tempProduct[index].p_img,
       "qty": 1
     })
     localStorage.setItem('cart', JSON.stringify(cart_list))
     cart_list = JSON.parse(localStorage.getItem('cart'))
     document.querySelector('.cart_count').textContent = cart_list.length
+
+    Swal.fire({
+      title: '加入购物车',
+      text: '成功',
+      icon: 'success',
+      confirmButtontext: '确定',
+      customClass: {
+        container: 'my-swal-container',
+        popup: 'my-swal-popup',
+        center: 'my-swal-center'
+      }
+    })
   })
 </script>
 

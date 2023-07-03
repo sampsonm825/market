@@ -103,6 +103,17 @@ def detail():
     return render_template('detail.html', order_detail=order_detail, oid=oid, order_data=order_data)
   else :
     return redirect('/')
+  
+@app.route('/details')
+def details():
+  if 'id' in session:
+    oid = request.args.get('oid')
+    order_detail = {}
+    order_data = {}
+    return render_template('detail.html', order_detail=order_detail, oid=oid, order_data=order_data)
+  else:
+    return redirect('/')
+
  
 
 
@@ -128,6 +139,20 @@ def product_detail():
   else :
     return redirect('/')
 
+@app.route('/favor',methods=['GET', 'POST'])
+def favor():
+  if 'id' in session:
+    return render_template('favor.html')
+  else :
+    return redirect('index')
+  
+@app.route('/search_page',methods=['GET', 'POST'])
+def search_page():
+  if 'id' in session:
+    string = request.args.get('string')
+    return render_template('search_page.html', string=string)
+  else :
+    return redirect('index')
 
 if __name__ == "__main__":
  app.run(debug=True, use_reloader=False, port = 5501)

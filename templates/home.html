@@ -163,7 +163,7 @@
            align-items: center;
            flex-wrap: wrap;
            gap: 2%;
-           justify-content: center;
+           justify-content: flex-start;
       }     
       .product-main li {
             width: 48%;
@@ -192,10 +192,33 @@
 
       .product-main li img{
             width: 100%;
+            max-height: 150px;
             object-fit: contain;
             display: block;
             margin: 0 auto;
+      }
 
+      .product-main li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+      }
+
+      .product-main li h4 {
+            font-size: 12px;
+            margin-bottom: 15px;
+            margin-top: 10px;
+      }
+
+      .product-main li p {
+            font-size: 14px;
+            color: #d62872;
+      }
+
+      .product-main li span {
+            font-size: 10px;
+            color: rgb(179, 179 , 179);
+            text-decoration: line-through;
       }
 </style>
 {% endblock %}
@@ -442,6 +465,24 @@
             speed: 1500, // 切换速度为1.5秒
             spaceBetween: 30
       });
+
+
+      const product_main = document.querySelector('.product-main ul')
+      let product_list = JSON.parse(localStorage.getItem('productList'))
+      let html = ''
+      product_list.forEach(item => {
+            html += `
+                  <li>
+                        <a href="/product_detail?id=${item.id}">
+                              <div class="img"><img src="${item.p_img}" alt=""></div>
+                              <h4>${item.p_name}</h4>
+                              <p>$${item.p_price}</p>
+                        </a>
+                  </li>
+            `
+
+      })
+      product_main.innerHTML = html
 </script>
 
 {% endblock %}

@@ -466,4 +466,47 @@
 
 
 </script>
+<script>
+  let orderList = JSON.parse(localStorage.getItem('orderList')) || []
+  function pushOrderList (order) {
+    let total_price = 0
+    let html = `
+      <div class="profile-order-item">
+        <div class="order-no">
+          <p>${order.order_no}</p>
+          <span>未付款</span>
+        </div>
+      `;
+    order.product_list.forEach(item => {
+      html += `
+        <div class="order-title">
+          <h4>${item.p_name}</h4>
+        </div>
+        <a href="/details?oid=${order.order_no}">
+          <div class="img-group">
+            <img src="${item.p_img}" alt="">
+          </div>
+        </a>
+      `
+      total_price += item.p_price
+    })
+    html += `
+        <div class="price">
+            <p>$${total_price}</p>
+            <a href="#">取消付款</a>
+          </div>
+        </div>
+      `
+
+    const profile_order = document.querySelector('.profile-order');
+
+    profile_order.insertAdjacentHTML('afterbegin', html);
+  }
+  orderList.forEach(order => {
+    pushOrderList(order)
+  })
+</script>
+
+
+
 {% endblock %}

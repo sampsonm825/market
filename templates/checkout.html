@@ -225,7 +225,7 @@
 </div>
 <div class="cart-result">
     <p class="cart-result-price">总计:¥  </p>
-    <a href="javascript:;">提交订单</a>
+    <a href="javascript:;" onclick="createOrder()">提交订单</a>
 </div>
 
 <script>
@@ -272,6 +272,68 @@ str += `
     order_list.innerHTML = str
     total_price.textContent = `合计: ¥${total}`
     cart_result_price.textContent = `合计: ¥${total}`
+
+    function getFormattedDate() {
+        let date = new Date();
+        let year = date.getFullYear();
+        let month = ("0" + (date.getMonth() + 1)).slice(-2);
+        let day = ("0" + (date.getDate() )).slice(-2);
+        let hours =  ("0" + (date.getHours())).slice(-2); 
+        let minutes =  ("0" + (date.getMinutes())).slice(-2);
+
+        let formattedDate = `${year}-${month}-${day} ${hours}:${minutes}`;
+
+        return formattedDate;
+    }
+
+
+    function generateOrderId() {
+        let randomNumber = '';
+        while (randomNumber.length < 26) {
+            randomNumber += Math.floor(Math.random() * Math.pow(10, 10)).toString();            
+        }
+        randomNumber = randomNumber.slice(0, 26);
+        return 'JH' + randomNumber;
+    }
+
+    function createOrder() {
+        let orderList = JSON.parse(localStorage.getItem('orderList')) || []
+        let cart_list = JSON.parse(localStorage.getItem('cart')) || []
+        let product_list = []
+        cart_list.forEach(item => {
+            product_list.push(item)
+        })
+        orderList.push(
+            {
+                product_list,
+                date: getFormattedDate(),
+                order_no: generateOrderId(),
+                pay: "未付款"
+            }
+        )
+        localStorage.setItem('orderList', JSON.stringify(orderList))
+
+        localStorage.setItem('cart', JSON.stringify([]))
+        Swal.fire({
+            title: '送出订单',
+            text: '成功',
+            icon: 'success',
+            confirmButtonText: 'OK',
+            customClass: {
+                container: 'my-swal-container',
+                popup: 'my-swal-popup',
+                center: 'my-swal-center',
+            }
+        })
+        .then((result) => {
+            if (result.isConfirmed) {
+                location.href = '/profile'
+            }
+        });
+        setTimeout(() => {
+            location.href = '/profile'
+        }, 2000)
+    }
 
 
 </script>

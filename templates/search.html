@@ -125,6 +125,88 @@
             display: none;
         }
 
+        .item_img {
+            width: 100%;
+            height: 250px;
+            margin-bottom: 10px;
+            margin-top: 10px;
+            overflow: hidden;
+        }
+
+        .item_img img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+            display: block;
+            transition: .5s;
+            overflow:hidden;
+        }
+
+        .brand-item {
+            cursor: pointer;
+        }
+
+        .item_img img:hover {
+            transform: scale(1.1);
+        }
+
+        .search-menu ul li {
+            padding: 20px 5px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: .5s;
+        }
+
+        .search-menu ul li:hover {
+            color: #d62872;
+        }
+
+        .search-input {
+            position: fixed;
+            max-width: 414px;
+            display: flex;
+            align-items: center;
+            padding: 13px;
+            background-color: #fff;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            top: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            z-index: 999;
+            gap: 10px;
+            transition: .8s;
+        }
+
+        .search-input.show {
+            top: 53px;
+        }
+
+        .search-input input {
+            padding: 2px 10px;
+            flex: 1 1 auto;
+        }
+
+        .search-input input:focus {
+            outline: #333;
+        }
+
+        .search-input a {
+            font-size: 12px;
+            background-color: #d62872;
+            color: #fff;
+            font-weight: bold;
+            text-align: center;
+            display: block;
+            padding: 4px;
+            flex: 0 0 10%;
+        }
+
+        input,
+        textarea{
+            font-size: initial;
+        }
+
          
     </style>
 </head>
@@ -135,9 +217,13 @@
                 <i class="fa-solid fa-xmark"></i>
             </a>
             <h2>商品分类</h2>
-            <a href="/">
+            <a href="javascript:;" class="search-open">
                 <i class="fa-solid fa-magnifying-glass"></i>
             </a>
+        </div>
+        <div class="search-input">
+            <input type="text">
+            <a class="search-btn" href="javascript:;">搜寻</a>
         </div>
         <div class="search-menu">
             <ul>
@@ -161,39 +247,17 @@
         <div class="brand">
             <div class="brand-item">
                 <h3>综合名店</h3>
-                <ul class="brand-content">
-                    <li>
-                        <a href="#">
-                            <img src="https://img3.momoshop.com.tw/ecm/img/online/brand/20160808155724602.jpg?t=1639592273" alt="">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="https://img3.momoshop.com.tw/ecm/img/online/brand/20160808155724602.jpg?t=1639592273" alt="">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="https://img3.momoshop.com.tw/ecm/img/online/brand/20160808155724602.jpg?t=1639592273" alt="">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="https://img3.momoshop.com.tw/ecm/img/online/brand/20160808155724602.jpg?t=1639592273" alt="">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="https://img3.momoshop.com.tw/ecm/img/online/brand/20160808155724602.jpg?t=1639592273" alt="">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="https://img3.momoshop.com.tw/ecm/img/online/brand/20160808155724602.jpg?t=1639592273" alt="">
-                        </a>
-                    </li>
-                </ul>
+                <div class="item_img">
+                    <img src="https://www.dior.cn/couture/ecommerce/media/catalog/product/cache/1/cover_image_1/870x580/17f82f742ffe127f42dca9de82fb58b1/S/K/1593769512_JRDV95026_0000_E01_ZHC.jpg?imwidth=870" alt="">
+                </div>
+                <div class="item-price">
+                    <p>$13999</p>
+                </div>
             </div>
+
+
+
+
             <div class="brand-item">
                 <h3>综合名店</h3>
                 <ul class="brand-content">
@@ -301,5 +365,91 @@
             </div>
         </div>
     </div>
+    <script>
+        const search_header_btn = document.querySelector('.search-header .search-open')
+        search_header_btn.addEventListener('click', (e) => {
+            const search_input = document.querySelector('.search-input')
+            search_input.classList.toggle('show') 
+        })
+
+        const search_btn = document.querySelector('.search-btn')
+        search_btn.addEventListener('click', (e) => {
+            const search_input = document.querySelector('.search-input input').value.trim()
+            location.href = `/search_page?string=${search_input}`
+        })
+
+        const productList = JSON.parse(localStorage.getItem('productList'))
+        let product_data = {}
+        let category = [...new Set(productList.map(item => item.category))]
+
+        productList.forEach(item => {
+            if (!(item.category in product_data)) {
+                product_data[item.category] = []
+            }
+            product_data[item.category].push(item)
+        });
+
+            init()
+                function init() {
+                    menuControl()
+                    productControl()
+                    listenDOM()
+                }
+
+                function render(index, category) {
+                    menuControl(index)
+                    productControl(category)
+                    listenDOM()
+                }
+
+        function listenDOM() {
+            const menu_btn = document.querySelectorAll('.search-menu ul li')
+            menu_btn.forEach((item, index) => {
+                item.addEventListener('click', (e) => {
+                    let category = e.target.dataset.category
+                    render(index, category)
+                })
+            })
+            const brandItem_btn = document.querySelectorAll('.brand-item')
+            brandItem_btn.forEach((item, index) => {
+                item.addEventListener('click', (e) => {
+                    let id = e.currentTarget.dataset.id
+                    location.href = `/product_detail?id=${id}`
+                })
+            })
+        }
+
+        function menuControl(idx = 0) {
+            const search_menu = document.querySelector('.search-menu ul')
+            let menu_html = ''
+            category.forEach((item, index) => {
+                menu_html += `
+                  <li class="${index == idx ? 'active' : ''}" data-category="${item}">${item}</li>
+                  `
+            })
+            search_menu.innerHTML = menu_html
+        }
+
+        function productControl(category = '手机') {
+            const brand = document.querySelector('.brand')
+            let productHtml = ``
+            product_data[category].forEach(item => {
+                productHtml += `
+                <div class="brand-item" data-id='${item.id}'>
+                    <h3>${item.p_name}</h3>
+                    <div class="item_img">
+                        <img src="${item.p_img}" alt="">
+                    </div>
+                    <div class="item-price">
+                        <p>$${item.p_price}</p>
+                    </div>
+                </div>
+                `
+            })
+            brand.innerHTML = productHtml            
+        }
+
+
+    </script>
 </body>
 </html>

@@ -10,7 +10,8 @@
     .order-detail {
         margin-top: 60px;
         padding-bottom: 100px;
-        height: 100vh;
+        min-height: 100vh;
+        
     }
 
     .detail-title {
@@ -161,9 +162,14 @@
 
 {% block main%}
 <div class="order-detail">
-    <div class="detail-title">
+    <div class="detail-title" >
+        {% if order_data != {} %}
         <h2>已付款</h2>
         <p>买家已付现</p>
+        {% else %}
+        <h2>未付款</h2>
+        <p>买家未付现</p>
+        {% endif %}
     </div>
     {% if order_detail !={} %}
     <div class="buy-profile first">
@@ -204,10 +210,14 @@
         <p class="label">地址:</p>
     </div>
 
-    <div class="buy-profile">
+    <div class="buy-profile product_list">
         <h4 class="title-product">
             {{ oid }} 
+            {% if order_data != {}%}
             <span>已付款</span>
+            {% else %}
+            <span>未付款</span>
+            {% endif %}
         </h4>
         <ul>
             <li>
@@ -227,5 +237,33 @@
         <span>¥ {{ order_data.price }}</span>
     </div>
 </div>
+<script>
+    const buy_profile = document.querySelector('.product_list ul')
+    const oid = '{{ oid }}'
+    const total_price = document.querySelector('.total-price span')
+    let order_list = JSON.parse(localStorage.getItem('orderList'))
+    let index = order_list.findIndex(order => order.order_no == oid)
+    if (index != -1) {
+        let tempOrder = order_list[index]
+        let html = ''
+        let totalPrice = 0
+        tempOrder.product_list.forEach(item => {
+            html += `
+                <li>
+                    <div class="img"><img src="${ item.p_img}" alt=""></div>
+                    <div class="desc">
+                        <h6>${ item.p_name }</h6>
+                        <p>$${ item.p_price}</p
+                    </div>
+                    <span class="qty">x${item.qty}</span>
+                </li>
+            `
+        totalPrice += item.p_price * item.qty                     
+        })
+        buy_profile.innerHTML = html
+        total_price.textContent = `$${totalPrice}`
+    }
+</script>
+
 
 {% endblock %}

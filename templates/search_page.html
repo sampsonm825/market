@@ -1,0 +1,366 @@
+{% extends "base.html" %}
+{% block tittle %}天天购物-搜寻页面{% endblock %}
+{% block style %}
+<style>
+    .container {
+        background-color: #eee;
+    }
+
+    .swiper-container {
+        width: 100%;
+        height: 200px;
+        overflow: hidden;
+    }
+
+    .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #f5f5f5;
+    }
+
+    .swiper-slide img {
+        width: 100%;
+        display: block;
+        object-fit: contain;
+    }
+
+    .category-menu {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 20px;
+        gap: 2%;
+    }
+
+    .category-menu .category-item {
+        width: calc((100% / 3) - 2%);
+        text-align: center;
+        margin-bottom: 16px;
+    }
+
+    .category-menu .category-item .img {
+        margin-bottom: 10px;
+
+    }
+
+    .category-menu .category-item img {
+        height: 45px;
+        display: block;
+        margin: 0 auto;
+        object-fit: contain;
+    }
+
+    .product-6000 {
+        margin-top: 15px;
+        margin-bottom: 15px;
+        background-color: #ffecdb;
+        border-radius: 40px 40px 0 0;
+        padding: 20px;
+    }
+
+    .product-6000 .list {
+        display: flex;
+        overflow-x: scroll;
+    }
+
+    .product-6000 .list li {
+        list-style: none;
+        cursor: pointer;
+    }
+
+    .product-6000 img {
+        display: block;
+        height: 200px;
+        object-fit: contain;
+    }
+
+    .product-fun {
+        background-color: #f6e8eb;
+        padding: 20px;
+    }
+
+    .product-fun .title-img img {
+        width: 100%;
+        object-fit: contain;
+        cursor: pointer;
+        display: block;
+    }
+
+    .product-fun ul {
+        display: flex;
+        overflow-x: scroll;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .product-fun ul li {
+        padding: 10px;
+        background-color: #fff;
+        cursor: pointer;
+        flex: 0 0 140px;
+        list-style: none;
+    }
+
+    .product-fun ul li img {
+        width: 100%;
+        object-fit: contain;
+        display: block;
+    }
+
+    .product-fun ul li h4 {
+        font-size: 10px;
+        margin-top: 5px;
+        margin-bottom: 20px;
+    }
+
+    .product-fun ul li p {
+        color: #d62872;
+        font-size: 12px;
+    }
+
+    .product-fun ul li span {
+        color: rgb(179, 179, 179);
+        font-size: 10px;
+        text-decoration: line-through;
+    }
+
+    .product-hot {
+        background-image: url(https://img2.momoshop.com.tw/ecm/img/online/81/007/00/000/mobile/bt_7_999_04/bg.png?t=1681098542084);
+        width: 97%;
+        margin: 1.5% auto;
+        background-position: center top;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: flex-start;
+        background-size: contain;
+        background-repeat: no-repeat;
+        gap: 1%;
+        padding: 15.2% 2% 4.5%;
+    }
+
+    .product-hot .hot-item {
+        width: 32.33333%;
+        height: 70px;
+        margin-bottom: 6%;
+    }
+
+    .product-hot .hot-item img {
+        display: block;
+        padding-top: 5px;
+        width: 100%;
+        margin: 0 auto;
+        object-fit: contain;
+    }
+
+    .product-main {
+        padding: 0 3px;
+        margin-top: 10px;
+    }
+
+    .product-main ul {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 2%;
+        justify-content: flex-start;
+    }
+
+    .product-main li {
+        width: 48%;
+        border: 1px solid #ccc;
+        padding: 10px;
+        list-style: none;
+        margin-bottom: 16px;
+        cursor: pointer;
+        background-color: #fff;
+    }
+
+    .product-main li h4 {
+        font-size: 12px;
+        margin-bottom: 15px;
+    }
+
+    .product-main li p {
+        font-size: 14px;
+        color: #d62872;
+    }
+
+    .product-main li span {
+        font-size: 10px;
+        color: rgb(179, 179, 179);
+        text-decoration: line-through;
+    }
+
+
+
+    .product-main li img {
+        width: 100%;
+        max-height: 150px;
+        object-fit: contain;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .product-main li a {
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
+    }
+
+    .product-main li h4 {
+        font-size: 12px;
+        margin-bottom: 15px;
+        margin-top: 10px;
+    }
+
+    .product-main li p {
+        font-size: 14px;
+        color: #d62872;
+    }
+
+    .product-main li span {
+        font-size: 10px;
+        color: rgb(179, 179, 179);
+        text-decoration: line-through;
+    }
+
+    .home h1 {
+        font-size: 16px;
+        text-align: center;
+        color: #000;
+        padding: 10px 0;
+        letter-spacing: 1.3px;
+        font-weight: bold;
+        background-color: #fff;
+    }
+
+    .empty_set {
+        border-radius: 12px;
+        width: 96%;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 16px;
+        box-sizing: 1px 0 3px #eee;
+        margin-top: 15px;
+    }
+
+    .home {
+        min-height: 100vh;
+    }
+</style>
+{% endblock %}
+
+{% block main%}
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+<div class="home">
+    <h1>搜寻结果 - {{ string }}</h1>
+    <div class="product-main">
+        <ul>
+            <li>
+                <div class="img"><img
+                        src="https://img4.momoshop.com.tw/goodsimg/0009/699/381/9699381_O.jpg?t=1677778255" alt="">
+                </div>
+                <h4>【Havit 海威特】18W快充行動電源+快充線</h4>
+                <p>44折 799</p>
+                <span>1780</span>
+            </li>
+            <li>
+                <div class="img"><img
+                        src="https://img4.momoshop.com.tw/goodsimg/0009/699/381/9699381_O.jpg?t=1677778255" alt="">
+                </div>
+                <h4>【Havit 海威特】18W快充行動電源+快充線</h4>
+                <p>44折 799</p>
+                <span>1780</span>
+            </li>
+            <li>
+                <div class="img"><img
+                        src="https://img4.momoshop.com.tw/goodsimg/0009/699/381/9699381_O.jpg?t=1677778255" alt="">
+                </div>
+                <h4>【Havit 海威特】18W快充行動電源+快充線</h4>
+                <p>44折 799</p>
+                <span>1780</span>
+            </li>
+            <li>
+                <div class="img"><img
+                        src="https://img4.momoshop.com.tw/goodsimg/0009/699/381/9699381_O.jpg?t=1677778255" alt="">
+                </div>
+                <h4>【Havit 海威特】18W快充行動電源+快充線</h4>
+                <p>44折 799</p>
+                <span>1780</span>
+            </li>
+            <li>
+                <div class="img"><img
+                        src="https://img4.momoshop.com.tw/goodsimg/0009/699/381/9699381_O.jpg?t=1677778255" alt="">
+                </div>
+                <h4>【Havit 海威特】18W快充行動電源+快充線</h4>
+                <p>44折 799</p>
+                <span>1780</span>
+            </li>
+            <li>
+                <div class="img"><img
+                        src="https://img4.momoshop.com.tw/goodsimg/0009/699/381/9699381_O.jpg?t=1677778255" alt="">
+                </div>
+                <h4>【Havit 海威特】18W快充行動電源+快充線</h4>
+                <p>44折 799</p>
+                <span>1780</span>
+            </li>
+            <li>
+                <div class="img"><img
+                        src="https://img4.momoshop.com.tw/goodsimg/0009/699/381/9699381_O.jpg?t=1677778255" alt="">
+                </div>
+                <h4>【Havit 海威特】18W快充行動電源+快充線</h4>
+                <p>44折 799</p>
+                <span>1780</span>
+            </li>
+            <li>
+                <div class="img"><img
+                        src=https://img4.momoshop.com.tw/goodsimg/0009/699/381/9699381_O.jpg?t=1677778255"" alt="">
+                </div>
+                <h4>【Havit 海威特】18W快充行動電源+快充線</h4>
+                <p>44折 799</p>
+                <span>1780</span>
+            </li>
+        </ul>
+    </div>
+
+
+</div>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script>
+
+
+
+    const product_main = document.querySelector('.product-main ul')
+    let product_list = JSON.parse(localStorage.getItem('productList'))
+    let html = ''
+    let string = '{{ string }}'
+    product_list.forEach(item => {
+
+        if (item.p_name.includes(string)) {
+            html += `
+                  <li>
+                        <a href="/product_detail?id=${item.p_id}">
+                              <div class="img"><img src="${item.p_img}" alt=""></div>
+                              <h4>${item.p_name}</h4>
+                              <p>$${item.p_price}</p>
+                        </a>
+                  </li>
+            `
+        }
+
+    })
+    if (html == '') {
+        html += `
+            <div style="padding: 16px;" class="empty_set">
+                匹配不到任何商品, 请重新搜寻 <br> <a href="/search" style="margin-top: 20px;display:block">前往搜寻<a>
+            </div>
+        `
+    }
+
+    product_main.innerHTML = html
+</script>
+
+{% endblock %}

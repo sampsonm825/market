@@ -7,7 +7,7 @@
     <title>{% block title %} {% endblock %}</title>
     <link rel="stylesheet" href="/css/all.css" class="css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" class="css">
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.20/dist/sweetalert2.min.css">
     {% block style %}
     {% endblock %}
     <style>
@@ -26,6 +26,17 @@
             justify-content: center;
             align-items: center;
             font-size: 12px;
+        }
+        .my-swal-container {
+            width: 100%;
+        }
+        .my-swal-popup {
+            width: 300px;
+        }
+        .my-swal-center {
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
     </style>
 </head>
@@ -63,28 +74,22 @@
             <div class="img">
                 <img src="https://image.momoshop.com.tw/ecm/img/cmm/mobile/main/footer_01.svg" alt="">
             </div>
-            <a href="">首页</a>
+            <a href="/home">首页</a>
         </div>
-        <div class="item">
-            <div class="img">
-                <img src="https://image.momoshop.com.tw/ecm/img/cmm/mobile/main/footer_02.svg" alt="">
-            </div>
-            <a href="">热销品</a>
-        </div>
-        <div class="item">
+        <div class="item favor_route"  style="cursor: pointer;">
             <div class="img">
                 <img src="https://image.momoshop.com.tw/ecm/img/cmm/mobile/main/footer_03.svg" alt="">
             </div>
-            <a href="">追踪清单</a>
+            <a href="/favor">追踪清单</a>
         </div>
-        <div class="item cart_list" style="position: relative; cursor: pointer;">
+        <div class="item cart_list" style="position: relative;">
             <div class="cart_count">0</div>
             <div class="img">
                 <img src="https://image.momoshop.com.tw/ecm/img/cmm/mobile/main/footer_04.svg" alt="">
             </div>
             <a href="">购物车</a>
         </div>
-        <div class="item">
+        <div class="item profile_route " style="cursor: pointer;" >
             <div class="img">
                 <img src="https://image.momoshop.com.tw/ecm/img/cmm/mobile/main/footer_05.svg" alt="">
             </div>
@@ -93,14 +98,24 @@
         </div>
     </div>
     {% endif %}
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.20/dist/sweetalert2.min.js"></script>
+
     <script>
         const cart_route = document.querySelector('.cart_list')
         const home_route = document.querySelector('.home_route')
+        const favor_route = document.querySelector('.favor_route')
+        const profile_route = document.querySelector('.profile_route')
         cart_route.addEventListener('click',(e)=> {
             location.href = '/cart'
         })
         home_route.addEventListener('click',(e)=> {
             location.href = '/home'
+        })
+        favor_route.addEventListener('click',(e)=> {
+            location.href = '/favor'
+        })
+        profile_route.addEventListener('click',(e)=> {
+            location.href = '/profile'
         })
         function render_cart(){
             let cart_list = JSON.parse(localStorage.getItem('cart')) || []
