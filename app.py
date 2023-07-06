@@ -80,7 +80,6 @@ def profile():
     order_data = []
     order_find = dbs.jeg_order.find(
       {
-        "name":session["name"],
         "uid":ObjectId(session["id"])
       }
     )

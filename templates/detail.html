@@ -11,7 +11,7 @@
         margin-top: 60px;
         padding-bottom: 100px;
         min-height: 100vh;
-        
+
     }
 
     .detail-title {
@@ -115,6 +115,12 @@
         font-size: 14px;
         line-height: 1.3;
         margin-bottom: 5px;
+        max-width: 300px;
+        /* Limit the width to 300px */
+        word-wrap: break-word;
+        /* Break at the end of words if necessary */
+        word-break: break-all;
+        /* Break at any character if necessary */
     }
 
     .buy-profile .desc p {
@@ -162,7 +168,7 @@
 
 {% block main%}
 <div class="order-detail">
-    <div class="detail-title" >
+    <div class="detail-title">
         {% if order_data != {} %}
         <h2>已付款</h2>
         <p>买家已付现</p>
@@ -212,7 +218,7 @@
 
     <div class="buy-profile product_list">
         <h4 class="title-product">
-            {{ oid }} 
+            {{ oid }}
             {% if order_data != {}%}
             <span>已付款</span>
             {% else %}
@@ -221,9 +227,7 @@
         </h4>
         <ul>
             <li>
-                <div class="img"><img
-                        src="{{ order_data.img_url }}"
-                        alt=""></div>
+                <div class="img"><img src="{{ order_data.img_url }}" alt=""></div>
                 <div class="desc">
                     <h6>{{ order_data.product }}</h6>
                     <p>{{ order_data.price }}</p>
@@ -250,18 +254,18 @@
         tempOrder.product_list.forEach(item => {
             html += `
                 <li>
-                    <div class="img"><img src="${ item.p_img}" alt=""></div>
+                    <div class="img"><img src="${item.p_img}" alt=""></div>
                     <div class="desc">
-                        <h6>${ item.p_name }</h6>
-                        <p>$${ item.p_price}</p
+                        <h6>${item.p_name}</h6>
+                        <p>¥${item.p_price}</p
                     </div>
                     <span class="qty">x${item.qty}</span>
                 </li>
             `
-        totalPrice += item.p_price * item.qty                     
+            totalPrice += item.p_price * item.qty
         })
         buy_profile.innerHTML = html
-        total_price.textContent = `$${totalPrice}`
+        total_price.textContent = `¥${totalPrice}`
     }
 </script>
 

@@ -236,7 +236,7 @@
         <th>折扣后价格</th>
         <td class="priceArea" style="display: flex; align-items: center; justify-content: space-between;">
           <p class="priceTxtArea">
-            <b>549</b>元
+            <b>549</b>¥
           </p>
           <div class="iconArea">
             <a id="hc_fast_01" title="快速到货" alt="快速到货"
@@ -250,20 +250,20 @@
           </div>
         </td>
       </tr>
-      <tr>
-        <th valign="top">促销价</th>
+      <!-- <tr>
+        <th valign="top">市场价</th>
         <td class="setpriceArea">
           <del>798</del>
         </td>
-      </tr>
-      <tr>
+      </tr> -->
+      <!-- <tr>
         <th valign="top">品牌名称</th>
         <td class="brandNameMode arrowBlock">
           <p>
             快车肉干 <a href="#" id="brandTrackStatus" class="untracking">追踪</a>
           </p>
         </td>
-      </tr>
+      </tr> -->
       <tr>
         <th valign="top">付款方式</th>
         <td class="paymentMode">
@@ -308,15 +308,14 @@
         <th class="jsDelyTitle" valign="top">配送方式</th>
         <td>
           <dl class="shippingTip" style="width: 295px;">
-            <dd><span class="shippingTip">快速到货</span>未满 $1000 运费$75</dd>
-            <dd><span class="shippingTip">24hr到货</span>金额满$1000 运费$50</dd>
-            <dt>
+            <dd><span class="shippingTip">快速到货 圆通速递</dd>
+            <!-- <dt>
               <img src="https://m.momoshop.com.tw/ecm/img/cmm/mobile/arrow_down.png" width="15px" height="15px">
-            </dt>
+            </dt> -->
           </dl>
         </td>
       </tr>
-      <tr class="InstallmentsData">
+      <!-- <tr class="InstallmentsData">
         <th valign="top">分期/红利</th>
         <td class="creditCardInstallments">
           <table width="100%" cellspacing="0" cellpadding="0">
@@ -368,7 +367,7 @@
             </tbody>
           </table>
         </td>
-      </tr>
+      </tr> -->
       <tr style="display: none;">
         <th>
           商品规格</th>
@@ -394,13 +393,13 @@
           <span></span>
         </td>
       </tr>
-      <tr>
+      <!-- <tr>
         <th valign="top">
           折价券</th>
         <td class="coupons">
           <a class="showCoupon" style="color:#3366FF">查看可使用的折价券</a>
         </td>
-      </tr>
+      </tr> -->
     </tbody>
   </table>
   <div class="product-desc">
@@ -440,7 +439,7 @@
   const product_desc = document.querySelector('.product-desc')
   const p_img = document.querySelector('.p-img')
   const priceTxtArea = document.querySelector('.priceTxtArea')
-  const setpriceArea = document.querySelector('.setpriceArea')
+  // const setpriceArea = document.querySelector('.setpriceArea')
 
   let favor_list = JSON.parse(localStorage.getItem('favorList')) || []
   let favor_index = favor_list.findIndex(item => item.p_id == tempProduct[index].id)
@@ -524,11 +523,11 @@
     <h4>${tempProduct[index].p_name}</h4>
   `
   priceTxtArea.innerHTML = `
-    <b>${tempProduct[index].p_price}</b>元
+    ¥<b>${tempProduct[index].p_price}</b>
   `
-  setpriceArea.innerHTML = `
-    <del>${tempProduct[index].p_price + tempProduct[index].p_price}元</del>
-  `
+  // setpriceArea.innerHTML = `
+  //   <del>${tempProduct[index].p_price + tempProduct[index].p_price}元</del>
+  // `
 
 
 

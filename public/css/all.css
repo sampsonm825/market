@@ -29,6 +29,7 @@ body {
     z-index: 1000;
 }
 
+
 .header .logo {
     width: 30%;
 }
@@ -87,6 +88,8 @@ body {
 .menu-bar .img img{
     display: block;
     margin: 0 auto;
+    max-width: 24px;
+    max-height: 24px; 
 }
 .login {
     display: flex;
