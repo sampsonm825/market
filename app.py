@@ -77,106 +77,28 @@ def checkout():
 @app.route('/profile',methods=['GET', 'POST'])
 def profile():
   if 'id' in session:
-    orderNo_data = []
-    page_data = {}
     order_data = []
-    match = {}
-    order_find = dbs.jeg_order.find(
-      {
-        "uid":ObjectId(session["id"])
-      }
-    )
-    # if request.method == 'POST':
-    #         #條件判斷
-    #   oId = request.form['no']
-    #   name = request.form['name']
-    #   if oId != '':
-    #     match['orderNo'] = oId
-    #   elif name != '':
-    #     match['name'] = name
-    #   if request.args.get('methods') == 'setorderno':
-    #         oid = request.args.get('oid')
-    #         orderNo = request.args.get('orderno')
-    #         order_data = dbs.jeg_order.find_one(
-    #             {
-    #               "_id":ObjectId(oid)
-    #             }
-    #         )
-    #         dbs.jeg_order.update_one(
-    #             {
-    #                 "_id":ObjectId(oid)
-    #             },
-    #             {
-    #                 "$set":{
-    #                     "order_detail": ObjectId(orderNo)
-    #                 }
-    #             }
-    #         )
-    #         dbs.order_no.update_one(
-    #             {
-    #                 "_id":ObjectId(orderNo)
-    #             },
-    #             {
-    #                 "$set":{
-    #                     "is_used":True
-    #                 },
-    #                 "$push":{
-    #                     "used_oid":order_data['bankAccount']
-    #                 }
-    #             }
-    #         )
-    #         return redirect('profile')
-        
-    #   current_page = request.args.get('page')
-    #   skip = 0
-    #   per = 20
-    #   if current_page != None:
-    #     skip = per * (int(current_page) - 1)
-    #   else:
-    #     current_page = 1
-    #     #判断条件时要加入筛选条件
-    #   order_len = dbs.jeg_order.count_documents(match)
-    #   if order_len % per == 0:
-    #     all_page = order_len // per
-    #   else:
-    #     all_page = (order_len // per) + 1
-    #   page_data['all_page'] = all_page
-    #   page_data['current_page'] = current_page
-    #     #分页处理结束
-
-    #   if 'name' in match or 'orderNo' in match:
-    #     skip = 0
-    #     per = 10000
-    #     page_data = {}
-
-    #   orderNo_find = dbs.order_no.find()
-    #   for doc in orderNo_find:
-    #       doc['_id'] = str(doc['_id'])
-    #       if 'is_used' not in doc:
-    #           orderNo_data.append(doc)
-    #   temp_data = dbs.jeg_order.find(match).limit(per).skip(skip)
-    #   for doc in temp_data:
-    #       doc['_id'] = str(doc['_id'])
-    #       doc['_uid'] = str(doc['uid'])
-    #       if 'order_detail' not in doc:
-    #         doc['order_detail'] = False
-    #       order_data.append(doc)
-    #   return render_template('profile.html', orderNo_data=orderNo_data, order_data=order_data, page_data=page_data )
-    # else:
-    #   return redirect('/')
-
-
-
-
-
-
-
-
-
-    for doc in order_find:
-      print(doc)
-      order_data.append(doc)
-    return render_template('profile.html', order_data=order_data)
+    is_fake = "true"
+    if request.method == 'POST':
+      order_no = request.form['order_no']
+      order_find = dbs.jeg_order.find_one(
+        {
+          "uid":ObjectId(session["id"]),
+          "orderNo": order_no
+        }
+      )
+      order_data.append(order_find)
+      is_fake = "false"
+    else:
+      order_find = dbs.jeg_order.find(
+        {
+          "uid":ObjectId(session["id"])
+        }
+      )
+      for doc in order_find:
+        print(doc)
+        order_data.append(doc)
+    return render_template('profile.html', order_data=order_data, is_fake=is_fake)
   else :
     return redirect('/')
   
@@ -254,16 +176,29 @@ def search_page():
 def sellorder():
   if 'id' in session:
     order_data = []
-    order_find = dbs.jeg_order.find(
-      {
-        "uid":ObjectId(session["id"]),
-        "type": "出貨"
-      }
-    )
-    for doc in order_find:
-      print(doc)
-      order_data.append(doc)
-    return render_template('sellorder.html', order_data=order_data)
+    is_fake = "true"
+    if request.method == 'POST':
+      order_no = request.form['order_no']
+      order_find = dbs.jeg_order.find_one(
+        {
+          "uid":ObjectId(session["id"]),
+          "orderNo": order_no,
+          "type": "出貨"
+        }
+      )
+      order_data.append(order_find)
+      is_fake = "false"
+    else:
+      order_find = dbs.jeg_order.find(
+        {
+          "uid":ObjectId(session["id"]),
+          "type": "出貨"
+        }
+      )
+      for doc in order_find:
+        print(doc)
+        order_data.append(doc)
+    return render_template('sellorder.html', order_data=order_data, is_fake=is_fake)
   else :
     return redirect('/')
   
@@ -271,16 +206,29 @@ def sellorder():
 def buyorder():
   if 'id' in session:
     order_data = []
-    order_find = dbs.jeg_order.find(
-      {
-        "uid":ObjectId(session["id"]),
-        "type": "進貨"
-      }
-    )
-    for doc in order_find:
-      print(doc)
-      order_data.append(doc)
-    return render_template('buyorder.html', order_data=order_data)
+    is_fake = "true"
+    if request.method == 'POST':
+      order_no = request.form['order_no']
+      order_find = dbs.jeg_order.find_one(
+        {
+          "uid":ObjectId(session["id"]),
+          "orderNo": order_no,
+          "type": "進貨"
+        }
+      )
+      order_data.append(order_find)
+      is_fake = "false"
+    else:
+      order_find = dbs.jeg_order.find(
+        {
+          "uid":ObjectId(session["id"]),
+          "type": "進貨"
+        }
+      )
+      for doc in order_find:
+        print(doc)
+        order_data.append(doc)
+    return render_template('buyorder.html', order_data=order_data, is_fake=is_fake)
   else :
     return redirect('/')
   

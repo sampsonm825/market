@@ -5,6 +5,7 @@
     padding: 60px 0;
     position: relative;
     width: 100%;
+    min-height: 100vh;
   }
 
   .profile .title {
@@ -67,11 +68,19 @@
     font-size: 14px;
   }
 
-  .profile-menu,
+  .profile-menu {
+    padding: 0 12px;
+    margin-top: 120px;
+    margin-bottom: 16px;
+  }
+
   .profile-order {
     padding: 0 12px;
-    margin-top: 184px;
     margin-bottom: 16px;
+  }
+
+  a {
+    text-decoration: none;
   }
 
   .profile-menu ul,
@@ -309,14 +318,23 @@
     padding: 13px;
     background-color: #fff;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-    top: 120px;
+    top: 110px;
     left: 0;
     right: 0;
     margin: auto;
     z-index: 999;
     gap: 10px;
     transition: .8s;
+    padding-top: 40px;
   }
+
+  .search-input form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #fff;
+  }
+
 
   .search-input.show {
     top: 173px;
@@ -325,13 +343,14 @@
   .search-input input {
     padding: 2px 10px;
     flex: 1 1 auto;
+
   }
 
   .search-input input:focus {
     outline: #333;
   }
 
-  .search-input a {
+  .search-input .search-btn {
     font-size: 12px;
     background-color: #d62872;
     color: #fff;
@@ -366,95 +385,40 @@
       <a href="/">
         <i class="fa-solid fa-xmark"></i>
       </a>
-      <h2>订单搜寻
-      </h2>
+      <h2>订单搜寻</h2>
       <a href="javascript:;" class="search-open">
         <i class="fa-solid fa-magnifying-glass"></i>
       </a>
     </div>
     <div class="search-input">
-      <input type="text">
-      <a class="search-btn" href="javascript:;">搜寻</a>
+      <form action="/profile" method="post">
+        <input type="text" name="order_no">
+        <button type="submit" class="search-btn">搜寻</button>
+      </form>
     </div>
   </div>
-# 新增
-<!-- 
-  <form class="search" action="/admin_manifestOrder" method="POST">
-    <div class="search-item">
-      <label for="no">訂單編號:</label>
-      <input type="text" name="no" id="no" placeholder="請輸入訂單編號">
-    </div>
-    <button type="submit">搜尋</button>
-    <a href="/profile">全部頁面</a>
-  </form> -->
-  <!-- <div class="coin-title">
+  <div class="profile-menu">
     <ul>
-        <li>
-            <h4>11</h4>
-            <p>关注数量</p>
-        </li>
-        <li>
-            <h4>7</h4>
-            <p>商品数量</p>
-        </li>
-        <li>
-            <h4>$ 25</h4>
-            <p>红利金</p>
-        </li>
-        <li>
-            <h4>$ 107</h4>
-            <p>优势币</p>
-        </li>
-    </ul>
- </div> -->
- <div class="profile-menu">
-  <ul>
       <li>
-          <!-- <div class="img"><img src="https://image.momoshop.com.tw/ecm/img/cmm/mobile/menu_1-1.png" alt=""></div>
-          <a href="/cart">订单查寻</a> -->
-        <div class="sellorder_route"  style="cursor: pointer;">
-          <div class="img">
-                <img src="https://image.momoshop.com.tw/ecm/img/cmm/mobile/menu_1-1.png" alt="">
-          </div>
-          <a href="/sellorder">出货订单</a>
+        <div class="sellorder_route" style="cursor: pointer;">
+          <a href="/sellorder">
+            <div class="img">
+              <img src="https://image.momoshop.com.tw/ecm/img/cmm/mobile/menu_1-1.png" alt="">
+            </div>
+            出货订单
+          </a>
         </div>
       </li>
       <li>
-          <!-- <div class="img"><img src="https://image.momoshop.com.tw/ecm/img/cmm/mobile/menu_1-2.png" alt=""></div>
-          <p>待出货查询</p>
-          <div class="sellorder_route"  style="cursor: pointer;"> -->
-            <div class="img">
-                  <img src="https://image.momoshop.com.tw/ecm/img/cmm/mobile/menu_1-3.png" alt="">
-            </div>
-            <a href="/buyorder">进货订单</a>
+        <a href="/buyorder">
+          <div class="img">
+            <img src="https://image.momoshop.com.tw/ecm/img/cmm/mobile/menu_1-3.png" alt="">
           </div>
+          进货订单
+        </a>
       </li>
-      <!-- <li>
-          <div class="img"><img src="https://image.momoshop.com.tw/ecm/img/cmm/mobile/menu_1-3.png" alt=""></div>
-          <p>出货状况</p> -->
-      <!-- </li>
-      <li>
-          <div class="img"><img src="https://image.momoshop.com.tw/ecm/img/cmm/mobile/menu_1-4.png "alt=""></div>
-          <p>评价</p>
-      </li>
-      <li>
-          <div class="img"><img src="https://image.momoshop.com.tw/ecm/img/cmm/mobile/menu_2-1.png" alt=""></div>
-          <p>商家资讯</p>
-      </li>
-      <li>
-          <div class="img"><img src="https://image.momoshop.com.tw/ecm/img/cmm/mobile/menu_2-2.png" alt=""></div>
-          <p>商品新增</p>
-      </li>
-      <li>
-          <div class="img"><img src="https://image.momoshop.com.tw/ecm/img/cmm/mobile/menu_2-3.png" alt=""></div>
-          <p>折价券</p>
-      </li>
-      <li>
-          <div class="img"><img src="https://image.momoshop.com.tw/ecm/img/cmm/mobile/menu_2-4.png" alt=""></div>
-          <p>已完成订单</p>
-      </li> -->
-  </ul>
-</div>
+    </ul>
+  </div>
 
   <div class="profile-order">
     {% for item in order_data %}
@@ -472,15 +436,13 @@
         </div>
       </a>
       <div class="price">
-            <p>¥ {{ item.price }}</p>
-            <!-- <a href="#">取消付款</a> -->
-        </div>
+        <p>¥ {{ item.price }}</p>
+        <!-- <a href="#">取消付款</a> -->
+      </div>
     </div>
     {% endfor %}
   </div>
 </div>
-
-
 <div class="message-modal">
   <div class="back">
     <p class="close"> <- back </p>
@@ -599,18 +561,20 @@
 
 </script>
 <script>
-  let orderList = JSON.parse(localStorage.getItem('orderList')) || []
-  function pushOrderList(order) {
-    let total_price = 0
-    let html = `
+  let is_fake = '{{ is_fake}}'
+  if (is_fake == 'true') {
+    let orderList = JSON.parse(localStorage.getItem('orderList')) || []
+    function pushOrderList(order) {
+      let total_price = 0
+      let html = `
       <div class="profile-order-item">
         <div class="order-no">
           <p>${order.order_no}</p>
           <span>未付款</span>
         </div>
       `;
-    order.product_list.forEach(item => {
-      html += `
+      order.product_list.forEach(item => {
+        html += `
         <div class="order-title">
           <h4>${item.p_name}</h4>
         </div>
@@ -620,9 +584,9 @@
           </div>
         </a>
       `
-      total_price += item.p_price
-    })
-    html += `
+        total_price += item.p_price
+      })
+      html += `
         <div class="price">
             <p>¥${total_price}</p>
             <a href="#">取消订单</a>
@@ -630,90 +594,23 @@
         </div>
       `
 
-    const profile_order = document.querySelector('.profile-order');
+      const profile_order = document.querySelector('.profile-order');
 
-    profile_order.insertAdjacentHTML('afterbegin', html);
+      profile_order.insertAdjacentHTML('afterbegin', html);
+    }
+    orderList.forEach(order => {
+      pushOrderList(order)
+    })
   }
-  orderList.forEach(order => {
-    pushOrderList(order)
-  })
+
 </script>
 <script>
   const search_header_btn = document.querySelector('.search-header .search-open')
   search_header_btn.addEventListener('click', (e) => {
-      const search_input = document.querySelector('.search-input')
-      search_input.classList.toggle('show') 
-  })
-
-  const search_btn = document.querySelector('.search-btn')
-  search_btn.addEventListener('click', (e) => {
-      const search_input = document.querySelector('.search-input input').value.trim()
-      location.href = `/search_page?string=${search_input}`
+    const search_input = document.querySelector('.search-input')
+    search_input.classList.toggle('show')
   })
 </script>
 
-# 新增
-<script src="https://unpkg.com/vue@next"></script>
-<script>
-  const app = Vue.createApp({
-    data() {
-      return {
-        orderNo_data: [],
-        search_date: '',
-        tempBankAccount: '',
-        tempOrderNo_data: [],
-        is_modal: false,
-        tempOid: ''
-      }
-    },
-    methods: {
-      searchOrderNo() {
-        if (this.search_date == '') {
-          this.setOrderNo(this.tempBankAccount);
-        } else {
-          this.setOrderNo(this.tempBankAccount)
-          this.tempOrderNo_data = this.tempOrderNo_data.filter(item => {
-            return item.date == this.search_date
-          })
-        }
-      },
-      setData (order_no) {
-        location.href = `/profile?oid=${this.tempOid}&orderno=${order_no}&methods=setorderno`
-        },
-      getOrderNo() {
-        let tempData = '{{ orderNo_data }}'
-        this.orderNo_data = JSON.parse(tempData.replace(/&#39;/g, '"'))
-      },
-      setOrderNo(bankAccount, oid) {
-        this.tempOrderNo_data = []
-        this.is_modal = true
-        this.tempBankAccount = bankAccount
-        this.tempOid = oid
-        this.orderNo_data.forEach(item => {
-          let flag = true
-          if (item.used_oid.length > 0) {
-            console.log('in filter', item)
-            item.used_oid.forEach(used => {
-              if (used == this.tempBankAccount) {
-                flag = false
-              }
-            })
-            if (flag) {
-              this.tempOrderNo_data.push(item)
-            }
-          } else {
-            this.tempOrderNo_data.push(item)
-          }
-        })
-      }
-    },
-    compilerOptions: {
-      delimiters: ["[[", "]]"]
-    },
-    mounted() {
-      this.getOrderNo()
-    }
-  })
-  app.mount('#app')
-</script>
+
 {% endblock %}
