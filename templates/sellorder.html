@@ -385,13 +385,13 @@
       <a href="/">
         <i class="fa-solid fa-xmark"></i>
       </a>
-      <h2>订单搜寻</h2>
+      <h2>出货-订单搜寻</h2>
       <a href="javascript:;" class="search-open">
         <i class="fa-solid fa-magnifying-glass"></i>
       </a>
     </div>
     <div class="search-input">
-      <form action="/profile" method="post">
+      <form action="/sellorder" method="post">
         <input type="text" name="order_no">
         <button type="submit" class="search-btn">搜寻</button>
       </form>
@@ -405,17 +405,29 @@
             <div class="img">
               <img src="https://image.momoshop.com.tw/ecm/img/cmm/mobile/menu_1-1.png" alt="">
             </div>
-            出货订单
+            所有订单
           </a>
         </div>
       </li>
       <li>
-        <a href="/buyorder">
-          <div class="img">
-            <img src="https://image.momoshop.com.tw/ecm/img/cmm/mobile/menu_1-3.png" alt="">
-          </div>
-          进货订单
-        </a>
+        <div class="sellorder_route" style="cursor: pointer;">
+          <a href="/sellorder?status=0">
+            <div class="img">
+              <img src="https://image.momoshop.com.tw/ecm/img/cmm/mobile/menu_1-1.png" alt="">
+            </div>
+            待出货订单
+          </a>
+        </div>
+      </li>
+      <li>
+        <div class="sellorder_route" style="cursor: pointer;">
+          <a href="/sellorder?status=1">
+            <div class="img">
+              <img src="https://image.momoshop.com.tw/ecm/img/cmm/mobile/menu_1-1.png" alt="">
+            </div>
+            已完成订单
+          </a>
+        </div>
       </li>
     </ul>
   </div>
@@ -558,50 +570,6 @@
   })
 
 
-
-</script>
-<script>
-  let is_fake = '{{ is_fake}}'
-  if (is_fake == 'true') {
-    let orderList = JSON.parse(localStorage.getItem('orderList')) || []
-    function pushOrderList(order) {
-      let total_price = 0
-      let html = `
-      <div class="profile-order-item">
-        <div class="order-no">
-          <p>${order.order_no}</p>
-          <span>未付款</span>
-        </div>
-      `;
-      order.product_list.forEach(item => {
-        html += `
-        <div class="order-title">
-          <h4>${item.p_name}</h4>
-        </div>
-        <a href="/details?oid=${order.order_no}">
-          <div class="img-group">
-            <img src="${item.p_img}" alt="">
-          </div>
-        </a>
-      `
-        total_price += item.p_price
-      })
-      html += `
-        <div class="price">
-            <p>¥${total_price}</p>
-            <a href="#">取消订单</a>
-          </div>
-        </div>
-      `
-
-      const profile_order = document.querySelector('.profile-order');
-
-      profile_order.insertAdjacentHTML('afterbegin', html);
-    }
-    orderList.forEach(order => {
-      pushOrderList(order)
-    })
-  }
 
 </script>
 <script>

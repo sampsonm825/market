@@ -102,6 +102,9 @@ def profile():
   else :
     return redirect('/')
   
+
+
+  
 @app.route('/detail',methods=['GET', 'POST'])
 def detail():
   if 'id' in session:
@@ -176,7 +179,6 @@ def search_page():
 def sellorder():
   if 'id' in session:
     order_data = []
-    is_fake = "true"
     if request.method == 'POST':
       order_no = request.form['order_no']
       order_find = dbs.jeg_order.find_one(
@@ -187,18 +189,26 @@ def sellorder():
         }
       )
       order_data.append(order_find)
-      is_fake = "false"
     else:
+      status = request.args.get('status')
+
+
+
+      
       order_find = dbs.jeg_order.find(
-        {
-          "uid":ObjectId(session["id"]),
-          "type": "出貨"
-        }
-      )
+          {
+            "uid":ObjectId(session["id"]),
+            "type": "出貨"
+          }
+        )
       for doc in order_find:
-        print(doc)
-        order_data.append(doc)
-    return render_template('sellorder.html', order_data=order_data, is_fake=is_fake)
+        if status == None:
+          order_data.append(doc)
+        elif status == '0' and 'order_detail' not in doc:
+          order_data.append(doc)
+        elif status == '1' and 'order_detail' in doc:
+          order_data.append(doc)
+    return render_template('sellorder.html', order_data=order_data)
   else :
     return redirect('/')
   
@@ -206,18 +216,13 @@ def sellorder():
 def buyorder():
   if 'id' in session:
     order_data = []
-    is_fake = "true"
-    if request.method == 'POST':
-      order_no = request.form['order_no']
-      order_find = dbs.jeg_order.find_one(
-        {
-          "uid":ObjectId(session["id"]),
-          "orderNo": order_no,
-          "type": "進貨"
-        }
-      )
-      order_data.append(order_find)
-      is_fake = "false"
+    is_pay = request.args.get('pay')
+    print(is_pay)
+
+    if is_pay == '0':
+      print('in is_pay = 0')
+      order_data = []
+      is_pay = 'false'
     else:
       order_find = dbs.jeg_order.find(
         {
@@ -228,7 +233,13 @@ def buyorder():
       for doc in order_find:
         print(doc)
         order_data.append(doc)
-    return render_template('buyorder.html', order_data=order_data, is_fake=is_fake)
+    if is_pay != '0' and is_pay != 'false' and is_pay != None:
+      is_pay = 'true'
+    elif is_pay == None:
+      is_pay = 'false'
+
+
+    return render_template('buyorder.html', order_data=order_data, is_pay=is_pay)
   else :
     return redirect('/')
   

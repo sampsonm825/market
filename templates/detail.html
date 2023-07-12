@@ -204,6 +204,24 @@
             <p>{{ order_detail.recipient_address }}</p>
         </div>
     </div>
+
+    <div class="buy-profile first">
+        <div class="profile-item">
+            <h3>货运状态</h3>
+        </div>
+        {% for item in order_detail.roadmap %}
+            {% if loop.index % 2 == 1 %}
+                <div class="profile-item">
+                    <p style="color: #111; font-weight: bold; font-size: 16px;">{{ item }}</p>
+                </div>
+            {% else %}
+                <div class="profile-item">
+                    <p style="color: #666; padding-left: 10px;">{{ item }}</p>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+    
     {% else %}
     <div class="buy-profile first">
         <div class="profile-item">

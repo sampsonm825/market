@@ -385,7 +385,7 @@
       <a href="/">
         <i class="fa-solid fa-xmark"></i>
       </a>
-      <h2>订单搜寻</h2>
+      <h2>进货-订单搜寻</h2>
       <a href="javascript:;" class="search-open">
         <i class="fa-solid fa-magnifying-glass"></i>
       </a>
@@ -400,21 +400,27 @@
   <div class="profile-menu">
     <ul>
       <li>
-        <div class="sellorder_route" style="cursor: pointer;">
-          <a href="/sellorder">
-            <div class="img">
-              <img src="https://image.momoshop.com.tw/ecm/img/cmm/mobile/menu_1-1.png" alt="">
-            </div>
-            出货订单
-          </a>
-        </div>
-      </li>
-      <li>
         <a href="/buyorder">
           <div class="img">
             <img src="https://image.momoshop.com.tw/ecm/img/cmm/mobile/menu_1-3.png" alt="">
           </div>
-          进货订单
+          所有订单
+        </a>
+      </li>
+      <li>
+        <a href="/buyorder?pay=0">
+          <div class="img">
+            <img src="https://image.momoshop.com.tw/ecm/img/cmm/mobile/menu_1-3.png" alt="">
+          </div>
+          待付款订单
+        </a>
+      </li>
+      <li>
+        <a href="/buyorder?pay=1">
+          <div class="img">
+            <img src="https://image.momoshop.com.tw/ecm/img/cmm/mobile/menu_1-3.png" alt="">
+          </div>
+          已完成订单
         </a>
       </li>
     </ul>
@@ -561,8 +567,8 @@
 
 </script>
 <script>
-  let is_fake = '{{ is_fake}}'
-  if (is_fake == 'true') {
+  let is_pay = '{{ is_pay}}'
+  if (is_pay == 'false') {
     let orderList = JSON.parse(localStorage.getItem('orderList')) || []
     function pushOrderList(order) {
       let total_price = 0
