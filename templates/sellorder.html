@@ -318,7 +318,7 @@
     padding: 13px;
     background-color: #fff;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-    top: 110px;
+    top: 120px;
     left: 0;
     right: 0;
     margin: auto;
@@ -364,6 +364,11 @@
   input,
   textarea {
     font-size: initial;
+  }
+
+  .profile-menu ul li a {
+        font-size: 14px;
+        color: #555;
   }
 </style>
 
@@ -433,26 +438,30 @@
   </div>
 
   <div class="profile-order">
-    {% for item in order_data %}
-    <div class="profile-order-item">
-      <div class="order-no">
-        <p>{{ item.orderNo }}</p>
-        <span>已付款</span>
-      </div>
-      <div class="order-title">
-        <h4>{{ item.product }}</h4>
-      </div>
-      <a href="/detail?oid={{ item.orderNo }}">
-        <div class="img-group">
-          <img src="{{ item.img_url }}" alt="">
+    {% if order_data == [] %}
+    <p style="text-align:center; color:#333;">- 查无任何订单资料 -</p>
+    {% else %}
+      {% for item in order_data %}
+      <div class="profile-order-item">
+        <div class="order-no">
+          <p>{{ item.orderNo }}</p>
+          <span>已付款</span>
         </div>
-      </a>
-      <div class="price">
-        <p>¥ {{ item.price }}</p>
-        <!-- <a href="#">取消付款</a> -->
+        <div class="order-title">
+          <h4>{{ item.product }}</h4>
+        </div>
+        <a href="/detail?oid={{ item.orderNo }}">
+          <div class="img-group">
+            <img src="{{ item.img_url }}" alt="">
+          </div>
+        </a>
+        <div class="price">
+          <p>¥ {{ item.price }}</p>
+          <!-- <a href="#">取消付款</a> -->
+        </div>
       </div>
-    </div>
-    {% endfor %}
+      {% endfor %}
+    {% endif %}
   </div>
 </div>
 <div class="message-modal">

@@ -181,14 +181,15 @@ def sellorder():
     order_data = []
     if request.method == 'POST':
       order_no = request.form['order_no']
-      order_find = dbs.jeg_order.find_one(
+      order_find = dbs.jeg_order.find(
         {
           "uid":ObjectId(session["id"]),
-          "orderNo": order_no,
+          "orderNo": {'$regex':order_no},
           "type": "出貨"
         }
       )
-      order_data.append(order_find)
+      for doc in order_find:
+        order_data.append(doc)
     else:
       status = request.args.get('status')
 
@@ -217,19 +218,34 @@ def buyorder():
   if 'id' in session:
     order_data = []
     is_pay = request.args.get('pay')
-    print(is_pay)
 
-    if is_pay == '0':
-      print('in is_pay = 0')
-      order_data = []
-      is_pay = 'false'
-    else:
+    if request.method == 'POST':
+      is_pay = "true"
+      order_no = request.form['order_no']
       order_find = dbs.jeg_order.find(
         {
           "uid":ObjectId(session["id"]),
-          "type": "進貨"
+          "orderNo":{'$regex':order_no},
+          "type":"進貨"
+
         }
       )
+      for doc in order_find:
+        order_data.append(doc)
+
+    
+    else:
+      if is_pay == '0':
+        print('in is_pay = 0')
+        order_data = []
+        is_pay = 'false'
+      else: 
+        order_find = dbs.jeg_order.find(
+          {
+            "uid":ObjectId(session["id"]),
+            "type": "進貨"
+          }
+        )
       for doc in order_find:
         print(doc)
         order_data.append(doc)
