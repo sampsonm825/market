@@ -16,7 +16,7 @@
 
     .detail-title {
         background: linear-gradient(to top left, #d62873, rgb(228, 114, 133));
-        padding: 40px 0;
+        padding: 20px 0;
         color: #fff;
     }
 
@@ -45,6 +45,7 @@
 
     .buy-profile.first {
         border-radius: 0 0 6px 6px;
+        line-height:0;
     }
 
     .profile-item {
@@ -62,7 +63,7 @@
 
     .profile-item p {
         color: #aaa;
-        line-height: 2;
+        line-height: 1;
     }
 
     .buy-profile h4.title {
@@ -135,7 +136,7 @@
 
     .total-price {
         position: fixed;
-        bottom: 46px;
+        bottom: 44px;
         left: 0;
         right: 0;
         margin: auto;
@@ -170,14 +171,68 @@
 <div class="order-detail">
     <div class="detail-title">
         {% if order_data != {} %}
-        <h2>已付款</h2>
-        <p>买家已付现</p>
+        <h2>已付款订单</h2>
+        <!-- <p>买家已付现</p> -->
         {% else %}
         <h2>未付款</h2>
-        <p>买家未付现</p>
+        <!-- <p>买家未付现</p> -->
         {% endif %}
     </div>
     {% if order_detail !={} %}
+
+    <div class="buy-profile first">
+        <div class="profile-item">
+            <h3>货运状态</h3>
+        </div>
+        {% for item in order_detail.roadmap %}
+            {% if loop.index % 2 == 1 %}
+                <div class="profile-item">
+                    <p style="color: #111; font-weight: bold; font-size: 16px;">{{ item }}</p>
+                </div>
+            {% else %}
+                <div class="profile-item">
+                    <p style="color: #666; padding-left: 10px;">{{ item }}</p>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+    
+    {% else %}
+    <div class="buy-profile first">
+        <div class="profile-item">
+            <p>暂时无物流讯息</p>
+        </div>
+    </div>
+    {% endif %}
+    <!-- <div class="buy-profile">
+        <h4 class="title">{{ oid }} 未填写手机号</h4>
+        <p class="label">地址:</p>
+    </div> -->
+
+    <div class="buy-profile product_list">
+        <h4 class="title-product">
+            {{ oid }}
+            {% if order_data != {}%}
+            <span>已付款</span>
+            {% else %}
+            <span>未付款</span>
+            {% endif %}
+        </h4>
+        <ul>
+            <li>
+                <div class="img"><img src="{{ order_data.img_url }}" alt=""></div>
+                <div class="desc">
+                    <h6>{{ order_data.product }}</h6>
+                    <p>{{ order_data.price }}</p>
+                </div>
+                <span class="qty">*1</span>
+            </li>
+        </ul>
+    </div>
+    <div class="total-price">
+        <p>已付金额</p>
+        <span>¥ {{ order_data.price }}</span>
+    </div>
     <div class="buy-profile first">
         <div class="profile-item">
             <h3>寄件人：</h3>
@@ -205,59 +260,6 @@
         </div>
     </div>
 
-    <div class="buy-profile first">
-        <div class="profile-item">
-            <h3>货运状态</h3>
-        </div>
-        {% for item in order_detail.roadmap %}
-            {% if loop.index % 2 == 1 %}
-                <div class="profile-item">
-                    <p style="color: #111; font-weight: bold; font-size: 16px;">{{ item }}</p>
-                </div>
-            {% else %}
-                <div class="profile-item">
-                    <p style="color: #666; padding-left: 10px;">{{ item }}</p>
-                </div>
-            {% endif %}
-        {% endfor %}
-    </div>
-    
-    {% else %}
-    <div class="buy-profile first">
-        <div class="profile-item">
-            <p>暂时无物流讯息</p>
-        </div>
-    </div>
-    {% endif %}
-    <div class="buy-profile">
-        <h4 class="title">{{ oid }} 未填写手机号</h4>
-        <p class="label">地址:</p>
-    </div>
-
-    <div class="buy-profile product_list">
-        <h4 class="title-product">
-            {{ oid }}
-            {% if order_data != {}%}
-            <span>已付款</span>
-            {% else %}
-            <span>未付款</span>
-            {% endif %}
-        </h4>
-        <ul>
-            <li>
-                <div class="img"><img src="{{ order_data.img_url }}" alt=""></div>
-                <div class="desc">
-                    <h6>{{ order_data.product }}</h6>
-                    <p>{{ order_data.price }}</p>
-                </div>
-                <span class="qty">*1</span>
-            </li>
-        </ul>
-    </div>
-    <div class="total-price">
-        <p>已付金额</p>
-        <span>¥ {{ order_data.price }}</span>
-    </div>
 </div>
 <script>
     const buy_profile = document.querySelector('.product_list ul')

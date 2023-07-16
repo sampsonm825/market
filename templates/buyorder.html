@@ -335,6 +335,18 @@
     background-color: #fff;
   }
 
+  .price h3 {
+    text-decoration: none;
+    border-radius: 4px;
+    border: 1px solid #d62872;
+    color: #d62872;
+    background-color: #fff;
+    padding: 5px 8px;
+    text-align: center;
+    font-size: 14px;
+    margin-bottom: 20px;
+    cursor: pointer;
+  }
 
   .search-input.show {
     top: 173px;
@@ -367,10 +379,15 @@
   }
 
   .profile-menu ul li a {
-        font-size: 14px;
-        color: #555;
+    font-size: 14px;
+    color: #555;
   }
 </style>
+
+<!-- Start of btmarkethelp Zendesk Widget script -->
+<script id="ze-snippet"
+  src="https://static.zdassets.com/ekr/snippet.js?key=74045cea-a45a-4af8-93a1-c338f3891a5f"> </script>
+<!-- End of btmarkethelp Zendesk Widget script -->
 
 {% endblock %}
 
@@ -433,28 +450,29 @@
 
   <div class="profile-order">
     {% if order_data == [] %}
-      <p style="text-align:center; color:#333;">- 查无任何订单资料 -</p>
+    <p style="text-align: center; color: #333;">- 查无任何订单资料 -</p>
     {% else %}
-      {% for item in order_data %}
-      <div class="profile-order-item">
-        <div class="order-no">
-          <p>{{ item.orderNo }}</p>
-          <span>已付款</span>
-        </div>
-        <div class="order-title">
-          <h4>{{ item.product }}</h4>
-        </div>
-        <a href="/detail?oid={{ item.orderNo }}">
-          <div class="img-group">
-            <img src="{{ item.img_url }}" alt="">
-          </div>
-        </a>
-        <div class="price">
-          <p>¥ {{ item.price }}</p>
-          <!-- <a href="#">取消付款</a> -->
-        </div>
+    {% for item in order_data %}
+    <div class="profile-order-item">
+      <div class="order-no">
+        <p>{{ item.orderNo }}</p>
+        <span>已付款</span>
       </div>
-      {% endfor %}
+      <div class="order-title">
+        <h4>{{ item.product }}</h4>
+      </div>
+      <a href="/detail?oid={{ item.orderNo }}">
+        <div class="img-group">
+          <img src="{{ item.img_url }}" alt="">
+        </div>
+      </a>
+      <div class="price">
+        <p>¥ {{ item.price }}</p>
+        <h3 data-id="{{ loop.index }}" class="message_btn-click">联络卖家</h3>
+        <!-- <a href="#">取消付款</a> -->
+      </div>
+    </div>
+    {% endfor %}
     {% endif %}
   </div>
 </div>
@@ -496,10 +514,38 @@
   const message_close_btn = document.querySelector('.close')
   const message_mine_btn = document.querySelector('.message-input .mine')
   const message_sender_btn = document.querySelector('.message-input .sender')
+  let messageList = JSON.parse(localStorage.getItem('message')) || []
+  function setMessaage(index) {
+    const message_content = document.querySelector('.message-content')
+    html = ``
+    messageList[index % 10].forEach(item => {
+      if ('user' in item) {
+        html += `
+          <div class="mine">
+            <p>我</p>
+            <div class="content">
+             ${item.user}
+            </div>
+          </div>
+        `
+      } else {
+        html += `
+          <div class="sender">
+            <p>卖家</p>
+            <div class="content">
+              ${item.ass}
+            </div>
+          </div>
+        `
+      }
+    })
+    message_content.innerHTML = html
+  }
 
 
   messageBtn.addEventListener('click', function (event) {
-    if (event.target.nodeName == 'SPAN') {
+    if (event.target.nodeName == 'H3') {
+      setMessaage(event.target.dataset.id)
       message.style.display = 'block'
       message_input.style.display = 'flex'
       message_mine_btn.style.display = 'block'
@@ -517,33 +563,61 @@
     message_sender_btn.style.display = 'none'
     message_mine_btn.style.display = 'none'
   })
-
   message_mine_btn.addEventListener('click', function (event) {
     const mineNode = document.createElement('div')
     mineNode.classList.add('mine')
-    //<div class="mine"></div>
-    const minePragraph = document.createElement('p')
-    minePragraph.textContent = '我'
-    // <p> 我 </p>
+    // <div class="mine"></div>
+
+    const mineParagraph = document.createElement('p')
+    mineParagraph.textContent = '我'
+    // <p>我</p>
 
     const mineContent = document.createElement('div')
     mineContent.classList.add('content')
     mineContent.textContent = document.querySelector('.message-input input').value
-    // <div class="content">请问还有货吗？</div>
+    // <div class="content">请问还有货吗?</div>
 
-    mineNode.appendChild(minePragraph)
+    mineNode.appendChild(mineParagraph)
     mineNode.appendChild(mineContent)
-
+    /*
+      <div class="mine">
+        <p>我</p>
+        <div class="content">请问还有货吗?</div>
+      </div>
+    */
     if (document.querySelector('.message-input input').value == '') return;
-
-    const message_content = document.querySelector('.message-content')
+    let message_content = document.querySelector('.message-content')
     message_content.appendChild(mineNode)
     document.querySelector('.message-input input').value = ''
 
     message_content.scrollTop = message_content.scrollHeight
 
+    setTimeout(() => {
+      const senderNode = document.createElement('div');
+      senderNode.classList.add('sender');
+      // <div class="sender"></div>
+
+      const senderParagraph = document.createElement('p');
+      senderParagraph.textContent = '卖家';
+      // <p>我</p>
+
+      const senderContent = document.createElement('div');
+      senderContent.classList.add('content');
+      senderContent.textContent = '目前忙线中，稍后会有小编为您服务，或是可以透过右下角客服对话进行询问噢，感谢您对平台卖场的支持!';
+      // <div class="content">请问还有货吗?</div>
+
+      senderNode.appendChild(senderParagraph);
+      senderNode.appendChild(senderContent);
+
+      const message_content = document.querySelector('.message-content');
+      message_content.appendChild(senderNode);
+      document.querySelector('.message-input input').value = '';
+
+      message_content.scrollTop = message_content.scrollHeight;
+    }, 2000);
 
   })
+
   message_sender_btn.addEventListener('click', function (event) {
     const senderNode = document.createElement('div')
     senderNode.classList.add('sender')
@@ -576,10 +650,10 @@
 
 </script>
 <script>
-  let is_pay = '{{ is_pay}}'
+  let is_pay = '{{ is_pay }}'
   if (is_pay == 'false') {
     let orderList = JSON.parse(localStorage.getItem('orderList')) || []
-    function pushOrderList(order) {
+    function pushOrderList(order, index) {
       let total_price = 0
       let html = `
       <div class="profile-order-item">
@@ -604,7 +678,10 @@
       html += `
         <div class="price">
             <p>¥${total_price}</p>
-            <a href="#">取消订单</a>
+            <div>
+              <h3 data-id="${index}" class="message_btn-click">联络卖家</h3>
+              <a href="#" class="cancel-order" data-id="${index}">取消订单</a>
+            </div>
           </div>
         </div>
       `
@@ -613,11 +690,45 @@
 
       profile_order.insertAdjacentHTML('afterbegin', html);
     }
-    orderList.forEach(order => {
-      pushOrderList(order)
+
+    function cancelOrder(event) {
+      event.preventDefault();
+      const orderId = event.target.dataset.id;
+      const orderItem = document.querySelector(`[data-id="${orderId}"]`).closest('.profile-order-item');
+      orderItem.remove();
+
+      // 从本地存储中删除相应的订单
+      orderList.splice(orderId, 1);
+      localStorage.setItem('orderList', JSON.stringify(orderList));
+    }
+
+    orderList.forEach((order, index) => {
+      pushOrderList(order, index)
     })
+
+    const cancelOrderLinks = document.querySelectorAll('.cancel-order');
+    cancelOrderLinks.forEach(link => {
+      link.addEventListener('click', cancelOrder);
+    });
+  }
+  function updateCartCount(count) {
+    localStorage.setItem('cartCount', count);
   }
 
+  function cancelOrder(event) {
+    event.preventDefault();
+    const orderId = event.target.dataset.id;
+    const orderItem = document.querySelector(`[data-id="${orderId}"]`).closest('.profile-order-item');
+    orderItem.remove();
+
+    // 从本地存储中删除相应的订单
+    orderList.splice(orderId, 1);
+    localStorage.setItem('orderList', JSON.stringify(orderList));
+
+    // 更新购物车数量
+    const cartCount = JSON.parse(localStorage.getItem('cartCount')) || 0;
+    updateCartCount(cartCount - 1);
+  }
 </script>
 <script>
   const search_header_btn = document.querySelector('.search-header .search-open')

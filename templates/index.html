@@ -5,49 +5,49 @@
 
 {% block main%}
 <div class="login">
-    <form action="/" method="POST">
-      <h1>momo 会员登入</h1>
-      <div class="form-control">
-        <span>帐号</span>
-        <input type="text" placeholder="手机/身分证字号/统一证号" name="account">
-      </div>
-      <div class="form-control">
-        <span>密码</span>
-        <input type="password" placeholder="6-15位英数字混合密码，英文需区分大小写" name="password">
-      </div>
-      <button type="submit">登入</button>
-    </form>
-  </div>
+  <form action="/" method="POST">
+    <h1>momo 会员登入</h1>
+    <div class="form-control">
+      <span>帐号</span>
+      <input type="text" placeholder="手机/身分证字号/统一证号" name="account">
+    </div>
+    <div class="form-control">
+      <span>密码</span>
+      <input type="password" placeholder="6-15位英数字混合密码，英文需区分大小写" name="password">
+    </div>
+    <button type="submit">登入</button>
+  </form>
+</div>
 
-  <script>
-    const productData = [
-      {
-        id: "001",
-        p_name: "别墅智能影音智能中控",
-        p_price: 8800,
-        p_img: "https://gw.alicdn.com/imgextra/i3/1759628063/O1CN01Z3NQjs29QuAJ6qi30_!!1759628063.jpg_Q75.jpg_.webp",
-        p_descImg: ['https://img.alicdn.com/imgextra/i3/1759628063/O1CN01JPf2gg29QuIqauaJ9_!!1759628063.jpg','https://img.alicdn.com/imgextra/i1/1759628063/O1CN01mHrwAk29QuFrN6O2o_!!1759628063.jpg','https://img.alicdn.com/imgextra/i4/1759628063/O1CN012xX71E29QuIvzxru3_!!1759628063.jpg'],
-        category: "手机"
-      },
-      {
-        id: "002",
-        p_name: "ESSONIO麦克风话筒音响一体",
-        p_price: 4568,
-        p_img: "https://gd2.alicdn.com/imgextra/i1/2212819630965/O1CN01ERG3um1J012ocxTie_!!2212819630965.jpg",
-        p_descImg: ['https://img.alicdn.com/imgextra/i4/2212819630965/O1CN01DsH6li1J00x43wpnY_!!2212819630965.jpg',
+<script>
+  const productData = [
+    {
+      id: "001",
+      p_name: "别墅智能影音智能中控",
+      p_price: 8800,
+      p_img: "https://gw.alicdn.com/imgextra/i3/1759628063/O1CN01Z3NQjs29QuAJ6qi30_!!1759628063.jpg_Q75.jpg_.webp",
+      p_descImg: ['https://img.alicdn.com/imgextra/i3/1759628063/O1CN01JPf2gg29QuIqauaJ9_!!1759628063.jpg', 'https://img.alicdn.com/imgextra/i1/1759628063/O1CN01mHrwAk29QuFrN6O2o_!!1759628063.jpg', 'https://img.alicdn.com/imgextra/i4/1759628063/O1CN012xX71E29QuIvzxru3_!!1759628063.jpg'],
+      category: "手机"
+    },
+    {
+      id: "002",
+      p_name: "ESSONIO麦克风话筒音响一体",
+      p_price: 4568,
+      p_img: "https://gd2.alicdn.com/imgextra/i1/2212819630965/O1CN01ERG3um1J012ocxTie_!!2212819630965.jpg",
+      p_descImg: ['https://img.alicdn.com/imgextra/i4/2212819630965/O1CN01DsH6li1J00x43wpnY_!!2212819630965.jpg',
         'https://img.alicdn.com/imgextra/i4/2212819630965/O1CN01KPSEZg1J012kT54fE_!!2212819630965.jpg',
         'https://img.alicdn.com/imgextra/i1/2212819630965/O1CN01tPSw0I1J012rLhiXa_!!2212819630965.jpg',
         'https://img.alicdn.com/imgextra/i4/2212819630965/O1CN011xm84C1J012umoFWW_!!2212819630965.jpg',
         'https://img.alicdn.com/imgextra/i4/2212819630965/O1CN01AtUqxS1J012ums8ja_!!2212819630965.jpg',
         'https://img.alicdn.com/imgextra/i2/2212819630965/O1CN01pjPyCd1J012kT4Kxi_!!2212819630965.jpg'],
-        category: "手机"
-      },
-      {
-        id: "003",
-        p_name: "HONOR/荣耀Magic5 Pro 5G全网通手机",
-        p_price: 6199,
-        p_img: "https://gw.alicdn.com/imgextra/i2/2206829838652/O1CN01itDmTo2DmfZxc1Maq_!!2206829838652.jpg_Q75.jpg_.webp",
-        p_descImg: ['https://img.alicdn.com/imgextra/i2/2206829838652/O1CN0135B9Ki2DmfaqqYxwb_!!2206829838652.jpg',
+      category: "手机"
+    },
+    {
+      id: "003",
+      p_name: "HONOR/荣耀Magic5 Pro 5G全网通手机",
+      p_price: 6199,
+      p_img: "https://gw.alicdn.com/imgextra/i2/2206829838652/O1CN01itDmTo2DmfZxc1Maq_!!2206829838652.jpg_Q75.jpg_.webp",
+      p_descImg: ['https://img.alicdn.com/imgextra/i2/2206829838652/O1CN0135B9Ki2DmfaqqYxwb_!!2206829838652.jpg',
         'https://img.alicdn.com/imgextra/i4/2206829838652/O1CN01v55lWq2DmfagcCnsO_!!2206829838652.jpg',
         'https://img.alicdn.com/imgextra/i3/2206829838652/O1CN01bRwib02DmfawMhi3p_!!2206829838652.jpg',
         'https://img.alicdn.com/imgextra/i4/2206829838652/O1CN01a6GGzx2DmfbmVwKY8_!!2206829838652.jpg',
@@ -65,15 +65,15 @@
         'https://img.alicdn.com/imgextra/i2/2206829838652/O1CN01uPZksX2Dmfa6uPY6Y_!!2206829838652.jpg',
         'https://img.alicdn.com/imgextra/i4/2206829838652/O1CN01kvNYsr2DmfaAJcOaq_!!2206829838652.jpg',
         'https://img.alicdn.com/imgextra/i3/2206829838652/O1CN01hfxnYW2Dmfa7xYpQG_!!2206829838652.jpg'],
-        category: "手机"
-      },
-      {
-        id: "004",
-        p_name: "华为P50 骁龙888芯 4G全网通 66W快充 原色双影像",
-        p_price: 4059
-         ,
-        p_img: "https://gw.alicdn.com/imgextra/i2/507957984/O1CN01jwvh3D28qittHXTk2_!!507957984.png_.webp",
-        p_descImg: ['https://img.alicdn.com/imgextra/i4/507957984/O1CN01Hpcdks28qisRD63Wh_!!507957984.jpg',
+      category: "手机"
+    },
+    {
+      id: "004",
+      p_name: "华为P50 骁龙888芯 4G全网通 66W快充 原色双影像",
+      p_price: 4059
+      ,
+      p_img: "https://gw.alicdn.com/imgextra/i2/507957984/O1CN01jwvh3D28qittHXTk2_!!507957984.png_.webp",
+      p_descImg: ['https://img.alicdn.com/imgextra/i4/507957984/O1CN01Hpcdks28qisRD63Wh_!!507957984.jpg',
         'https://img.alicdn.com/imgextra/i4/507957984/O1CN01T67aZr28qitr9AAB1_!!507957984.jpg',
         'https://img.alicdn.com/imgextra/i2/507957984/O1CN01X459aO28qituorfGF_!!507957984.jpg',
         'https://img.alicdn.com/imgextra/i4/507957984/O1CN01cHQH0H28qitwHO2hm_!!507957984.jpg',
@@ -89,15 +89,15 @@
         'https://img.alicdn.com/imgextra/i4/507957984/O1CN01eiGuj528qitqXiaTW_!!507957984.jpg',
         'https://img.alicdn.com/imgextra/i3/507957984/O1CN016XS8RD28qituorKS7_!!507957984.jpg',
         'https://gw.alicdn.com/tfs/TB1d0h2qVYqK1RjSZLeXXbXppXa-1125-960.png?getAvatar=avatar',],
-        category: "手机"
-      },
-      {
-        id: "005",
-        p_name: "Sony/索尼 HT-S400 2.1声道 家庭影音系统",
-        p_price: 1990
-         ,
-        p_img: "https://gw.alicdn.com/imgextra/i4/782731205/O1CN01bImkmc1Klw1OPzOdI_!!782731205.jpg_Q75.jpg_.webp",
-        p_descImg: ['https://img.alicdn.com/imgextra/i4/782731205/O1CN01G3XwPj1Klw4udYH4u_!!782731205.jpg',
+      category: "手机"
+    },
+    {
+      id: "005",
+      p_name: "Sony/索尼 HT-S400 2.1声道 家庭影音系统",
+      p_price: 1990
+      ,
+      p_img: "https://gw.alicdn.com/imgextra/i4/782731205/O1CN01bImkmc1Klw1OPzOdI_!!782731205.jpg_Q75.jpg_.webp",
+      p_descImg: ['https://img.alicdn.com/imgextra/i4/782731205/O1CN01G3XwPj1Klw4udYH4u_!!782731205.jpg',
         'https://img.alicdn.com/imgextra/i4/782731205/O1CN01rauFl61Klw50rIaXR_!!782731205.jpg',
         'https://img.alicdn.com/imgextra/i2/782731205/O1CN01I3T9Dz1Klw4slKGLb_!!782731205.jpg',
         'https://img.alicdn.com/imgextra/i3/782731205/O1CN0159rDhn1Klw4shcrCt_!!782731205.jpg',
@@ -105,14 +105,14 @@
         'https://img.alicdn.com/imgextra/i2/782731205/O1CN01IM2PYy1Klw4uDzIRM_!!782731205.jpg',
         'https://img.alicdn.com/imgextra/i3/782731205/O1CN01BT1Zhc1Klw4pseTW0_!!782731205.jpg',
         'https://img.alicdn.com/imgextra/i3/782731205/O1CN012SnxL31Klw5017urI_!!782731205.jpg',],
-        category: "手机"
-      },
-      {
-        id: "006",
-        p_name: "win11笔记本商务触屏电脑新款正品1166(32GB+1TB) 亮铂金",
-        p_price: 21176,
-        p_img: "https://gw.alicdn.com/imgextra/i3/2616970884/O1CN01L3RB5j1IOuv73XQOH_!!2616970884.jpg_Q75.jpg_.webp",
-        p_descImg: ['https://img.alicdn.com/imgextra/i2/2616970884/O1CN01kNYgGw1IOuutSlhVd_!!2616970884.jpg',
+      category: "手机"
+    },
+    {
+      id: "006",
+      p_name: "win11笔记本商务触屏电脑新款正品1166(32GB+1TB) 亮铂金",
+      p_price: 21176,
+      p_img: "https://gw.alicdn.com/imgextra/i3/2616970884/O1CN01L3RB5j1IOuv73XQOH_!!2616970884.jpg_Q75.jpg_.webp",
+      p_descImg: ['https://img.alicdn.com/imgextra/i2/2616970884/O1CN01kNYgGw1IOuutSlhVd_!!2616970884.jpg',
         'https://img.alicdn.com/imgextra/i4/2616970884/O1CN01CuPxZh1IOuvqRIwuj_!!2616970884.jpg',
         'https://img.alicdn.com/imgextra/i2/2616970884/O1CN01mXk2AP1IOuvwbOayy_!!2616970884.jpg',
         'https://img.alicdn.com/imgextra/i2/2616970884/O1CN01vQWWui1IOuvyAbGKD_!!2616970884.jpg',
@@ -120,14 +120,14 @@
         'https://img.alicdn.com/imgextra/i4/2616970884/O1CN01HQW82j1IOuw0YlXNe_!!2616970884.jpg',
         'https://img.alicdn.com/imgextra/i3/2616970884/O1CN011kSg961IOuw2yzR93_!!2616970884.jpg',
         'https://img.alicdn.com/imgextra/i3/2616970884/O1CN01imLP0V1IOuxrKUNt9_!!2616970884.jpg'],
-        category: "笔记本/平板"
-      },
-      {
-        id: "007",
-        p_name: "华硕天选4 13代英特尔酷睿i9 15.6英寸高性能游戏本笔记本电脑",
-        p_price: 7999,
-        p_img: "https://gw.alicdn.com/imgextra/i4/2215184095976/O1CN017IRDbA1u13iCX1yCm_!!2215184095976.jpg_Q75.jpg_.webp",
-        p_descImg: ['https://img.alicdn.com/imgextra/i2/686773455/O1CN01lSYrmY1bORG7ZU4DE_!!686773455.jpg',
+      category: "笔记本/平板"
+    },
+    {
+      id: "007",
+      p_name: "华硕天选4 13代英特尔酷睿i9 15.6英寸高性能游戏本笔记本电脑",
+      p_price: 7999,
+      p_img: "https://gw.alicdn.com/imgextra/i4/2215184095976/O1CN017IRDbA1u13iCX1yCm_!!2215184095976.jpg_Q75.jpg_.webp",
+      p_descImg: ['https://img.alicdn.com/imgextra/i2/686773455/O1CN01lSYrmY1bORG7ZU4DE_!!686773455.jpg',
         'https://img.alicdn.com/imgextra/i3/686773455/O1CN01m7aW031bORG64EVkT_!!686773455.jpg',
         'https://img.alicdn.com/imgextra/i1/686773455/O1CN01eSuNGt1bORFZewj0P_!!686773455.jpg',
         'https://img.alicdn.com/imgextra/i1/686773455/O1CN01878MbG1bORFaElOua_!!686773455.jpg',
@@ -136,14 +136,14 @@
         'https://img.alicdn.com/imgextra/i3/686773455/O1CN01YzwcPp1bORFYzsvIn_!!686773455.jpg',
         'https://img.alicdn.com/imgextra/i2/686773455/O1CN01e9h2hv1bORFkRbOlH_!!686773455.jpg',
         'https://img.alicdn.com/imgextra/i1/686773455/O1CN01YAVBBf1bORFflrlHq_!!686773455.jpg'],
-        category: "笔记本/平板"
-      },
-      {
-        id: "008",
-        p_name: "【官方旗舰店】2023新款骁龙平板电脑上网课孩子学生儿童专用二合一笔记本学习机",
-        p_price: 949,
-        p_img: "https://gw.alicdn.com/imgextra/i4/2200785942619/O1CN01HmBFAw1VDY7TIfj7W_!!2200785942619.jpg_Q75.jpg_.webp",
-        p_descImg: ['https://img.alicdn.com/imgextra/i4/2200785942619/O1CN01GH2IXn1VDY7BYntxq_!!2200785942619.jpg',
+      category: "笔记本/平板"
+    },
+    {
+      id: "008",
+      p_name: "【官方旗舰店】2023新款骁龙平板电脑上网课孩子学生儿童专用二合一笔记本学习机",
+      p_price: 949,
+      p_img: "https://gw.alicdn.com/imgextra/i4/2200785942619/O1CN01HmBFAw1VDY7TIfj7W_!!2200785942619.jpg_Q75.jpg_.webp",
+      p_descImg: ['https://img.alicdn.com/imgextra/i4/2200785942619/O1CN01GH2IXn1VDY7BYntxq_!!2200785942619.jpg',
         'https://img.alicdn.com/imgextra/i4/2200785942619/O1CN01s79DuP1VDY88pqyUM_!!2200785942619.jpg',
         'https://img.alicdn.com/imgextra/i2/2200785942619/O1CN01AxwudH1VDY88G3ExG_!!2200785942619.jpg',
         'https://img.alicdn.com/imgextra/i3/2200785942619/O1CN01GZcVJq1VDY84zj27h_!!2200785942619.jpg',
@@ -152,14 +152,14 @@
         'https://img.alicdn.com/imgextra/i2/2200785942619/O1CN01OoPwMq1VDY7vomnah_!!2200785942619.jpg',
         'https://img.alicdn.com/imgextra/i4/2200785942619/O1CN01mTENOZ1VDY8BXBw2t_!!2200785942619.jpg',
         'https://img.alicdn.com/imgextra/i4/2200785942619/O1CN01nqhM0N1VDY87Xd35D_!!2200785942619.jpg'],
-        category: "笔记本/平板"
-      },
-      {
-        id: "009",
-        p_name: "vivo Pad平板电脑新款超薄笔记本电脑",
-        p_price: 2999,
-        p_img: "https://gw.alicdn.com/bao/uploaded/i3/2207440821122/O1CN01MJtZ4B1K9vCRnSm6N_!!2207440821122.png_.webp",
-        p_descImg: ['https://img.alicdn.com/imgextra/i4/2200785942619/O1CN01GH2IXn1VDY7BYntxq_!!2200785942619.jpg',
+      category: "笔记本/平板"
+    },
+    {
+      id: "009",
+      p_name: "vivo Pad平板电脑新款超薄笔记本电脑",
+      p_price: 2999,
+      p_img: "https://gw.alicdn.com/bao/uploaded/i3/2207440821122/O1CN01MJtZ4B1K9vCRnSm6N_!!2207440821122.png_.webp",
+      p_descImg: ['https://img.alicdn.com/imgextra/i4/2200785942619/O1CN01GH2IXn1VDY7BYntxq_!!2200785942619.jpg',
         'https://img.alicdn.com/imgextra/i2/2207440821122/O1CN013YgZxX1K9vEmwgQdl_!!2207440821122.jpg',
         'https://img.alicdn.com/imgextra/i4/2207440821122/O1CN01HfzwGI1K9vEoUgVDd_!!2207440821122.jpg',
         'https://img.alicdn.com/imgextra/i3/2207440821122/O1CN01FCYXNE1K9vElAU1FQ_!!2207440821122.jpg',
@@ -169,14 +169,14 @@
         'https://img.alicdn.com/imgextra/i1/2207440821122/O1CN01cohhqR1K9vEjYy5Il_!!2207440821122.jpg',
         'https://img.alicdn.com/imgextra/i1/2207440821122/O1CN01cohhqR1K9vEjYy5Il_!!2207440821122.jpg',
         'https://img.alicdn.com/imgextra/i4/2207440821122/O1CN0159ikmG1K9vEkrFZZL_!!2207440821122.jpg'],
-        category: "笔记本/平板"
-      },
-      {
-        id: "010",
-        p_name: "Geglovo/格斐斯 Windows平板电脑二合一笔记本掌上电脑",
-        p_price: 1029,
-        p_img: "https://gw.alicdn.com/imgextra/i1/1062583331/O1CN01lrhO1A1aTe4nDqbkJ_!!1062583331.jpg_Q75.jpg_.webp",
-        p_descImg: ['https://img.alicdn.com/imgextra/i3/1872914134/O1CN01YrjEvP1gPQAgk2FNL_!!1872914134.jpg',
+      category: "笔记本/平板"
+    },
+    {
+      id: "010",
+      p_name: "Geglovo/格斐斯 Windows平板电脑二合一笔记本掌上电脑",
+      p_price: 1029,
+      p_img: "https://gw.alicdn.com/imgextra/i1/1062583331/O1CN01lrhO1A1aTe4nDqbkJ_!!1062583331.jpg_Q75.jpg_.webp",
+      p_descImg: ['https://img.alicdn.com/imgextra/i3/1872914134/O1CN01YrjEvP1gPQAgk2FNL_!!1872914134.jpg',
         'https://img.alicdn.com/imgextra/i1/1872914134/O1CN01Coe6Vz1gPQAZ1V71s_!!1872914134.jpg',
         'https://img.alicdn.com/imgextra/i4/1872914134/O1CN01NB1wcd1gPQAgk2Nhh_!!1872914134.jpg',
         'https://img.alicdn.com/imgextra/i1/1872914134/O1CN01nEAKLv1gPQAamOYci_!!1872914134.jpg',
@@ -185,14 +185,14 @@
         'https://img.alicdn.com/imgextra/i4/1872914134/O1CN01SQoSB01gPQAQE1PbR_!!1872914134.jpg',
         'https://img.alicdn.com/imgextra/i3/1872914134/O1CN01ls3KNi1gPQAZ1XG5D_!!1872914134.jpg',
         'https://img.alicdn.com/imgextra/i2/1872914134/O1CN01ipubul1gPQAZ1X7mR_!!1872914134.jpg'],
-        category: "笔记本/平板"
-      },
-      {
-        id: "011",
-        p_name: "浪琴(Longines)瑞士手表 心月系列 月相石英钢带女表 30.5mm",
-        p_price: 12700,
-        p_img: "https://img13.360buyimg.com/n1/jfs/t1/141642/2/34893/83133/6492a1e9Fde57def7/b0e930085332f40a.jpg.avif",
-        p_descImg: ['https://item.jd.com/100011389482.html',
+      category: "笔记本/平板"
+    },
+    {
+      id: "011",
+      p_name: "浪琴(Longines)瑞士手表 心月系列 月相石英钢带女表 30.5mm",
+      p_price: 12700,
+      p_img: "https://img13.360buyimg.com/n1/jfs/t1/141642/2/34893/83133/6492a1e9Fde57def7/b0e930085332f40a.jpg.avif",
+      p_descImg: ['https://item.jd.com/100011389482.html',
         'https://img30.360buyimg.com/sku/jfs/t1/191449/27/17121/374074/610ced29E9c9a6e40/d6dc8c9fc495ac89.jpg.avif',
         'https://img30.360buyimg.com/sku/jfs/t1/184830/39/163/291710/607fb9baEd996e3cc/71c62808c0f3e135.jpg.avif',
         'https://img30.360buyimg.com/sku/jfs/t1/160594/12/20297/152862/607fb9b9E00dc472b/b4ece0d7d8d8326a.jpg.avif',
@@ -201,40 +201,40 @@
         'https://img30.360buyimg.com/sku/jfs/t1/182959/35/20634/64923/6121dbe4Eb9bb010f/9d02872e97d80738.jpg.avif',
         'https://img30.360buyimg.com/sku/jfs/t1/184241/7/175/193018/607fb9b9E249511af/f310cf6d135dd82e.jpg.avif',
         '//gw.alicdn.com/tfs/TB1d0h2qVYqK1RjSZLeXXbXppXa-1125-960.png?getAvatar=avatar'],
-        category: "女士精品表"
-      },
-      {
-        id: "012",
-        p_name: "浪琴手表女表制表传统系列29.5毫米表径自动机械休闲商务表",
-        p_price: 10500,
-        p_img: "https://img10.360buyimg.com/n1/s450x450_jfs/t1/65462/36/21883/55047/63e1c50eF94076131/75d08b31b05557ea.jpg.avif",
-        p_descImg: ['https://img14.360buyimg.com/imgzone/jfs/t1/97641/14/34691/122119/636b4e02E79afddcb/2a4f055c100b849b.jpg.avif',
+      category: "女士精品表"
+    },
+    {
+      id: "012",
+      p_name: "浪琴手表女表制表传统系列29.5毫米表径自动机械休闲商务表",
+      p_price: 10500,
+      p_img: "https://img10.360buyimg.com/n1/s450x450_jfs/t1/65462/36/21883/55047/63e1c50eF94076131/75d08b31b05557ea.jpg.avif",
+      p_descImg: ['https://img14.360buyimg.com/imgzone/jfs/t1/97641/14/34691/122119/636b4e02E79afddcb/2a4f055c100b849b.jpg.avif',
         'https://img14.360buyimg.com/imgzone/jfs/t1/97641/14/34691/122119/636b4e02E79afddcb/2a4f055c100b849b.jpg.avif',
         'https://img11.360buyimg.com/imgzone/jfs/t1/160660/10/33007/53528/636b4e10E6db5c793/3576cb619bae8a3c.jpg.avif',
         'https://img30.360buyimg.com/imgzone/jfs/t1/200039/14/28285/56067/636b4dffEf73edd9d/8ef61c13695935ff.jpg.avif',
         'https://img11.360buyimg.com/imgzone/jfs/t1/71980/28/19081/75851/636b4e05E739c20ba/0b836c790d4cc0b2.jpg.avif',
         'https://img14.360buyimg.com/imgzone/jfs/t1/123469/27/32901/109613/636b4e05E3f6685ab/d36a227e889c5cea.jpg.avif'],
-        category: "女士精品表"
-      },
-      {
-        id: "013",
-        p_name: "浪琴(Longines)瑞士手表 典藏系列 石英皮带女表",
-        p_price: 10600,
-        p_img: "https://img13.360buyimg.com/n1/jfs/t1/107913/14/40125/79655/6492a561F40f8fea7/785bc49ac78db097.jpg.avif",
-        p_descImg: ['https://img30.360buyimg.com/sku/jfs/t1/132488/38/20608/420329/61ca88c0Eca99cab7/6396a1f61811387f.jpg.avif',
+      category: "女士精品表"
+    },
+    {
+      id: "013",
+      p_name: "浪琴(Longines)瑞士手表 典藏系列 石英皮带女表",
+      p_price: 10600,
+      p_img: "https://img13.360buyimg.com/n1/jfs/t1/107913/14/40125/79655/6492a561F40f8fea7/785bc49ac78db097.jpg.avif",
+      p_descImg: ['https://img30.360buyimg.com/sku/jfs/t1/132488/38/20608/420329/61ca88c0Eca99cab7/6396a1f61811387f.jpg.avif',
         'https://img30.360buyimg.com/sku/jfs/t1/137989/16/3158/315154/5f115a84E0c923c7c/d975aa4a66977a3f.jpg.avif',
         'https://img30.360buyimg.com/sku/jfs/t1/111260/5/18150/296017/6150389dE43d54239/57f9ef450a7656ab.jpg.avif',
         'https://img30.360buyimg.com/sku/jfs/t1/139756/38/22338/433039/6150389cEf4b342e9/1a0e2e1e7ead18f3.jpg.avif',
         'https://img30.360buyimg.com/sku/jfs/t1/138325/4/3197/326744/5f115a83E59a4bea4/80227beae4eb0324.jpg.avif',
         'https://img30.360buyimg.com/sku/jfs/t1/128735/4/7366/459129/5f115a84E4ac1a75c/6faab5b906e7dd24.jpg.avif'],
-        category: "女士精品表"
-      },
-      {
-        id: "014",
-        p_name: "美度（MIDO）瑞士手表 都瑞系列瑞士石英女士腕表 M033.210.11.031.00",
-        p_price: 3140,
-        p_img: "https://img12.360buyimg.com/n1/jfs/t1/144569/31/13427/87534/5fa50079Ee415fe48/f296c3b7d483ce73.jpg.avif",
-        p_descImg: ['https://img20.360buyimg.com/imgzone/jfs/t1/139291/37/30884/82401/64424d0cF24c013e0/59fa8e11478dad04.jpg.avif',
+      category: "女士精品表"
+    },
+    {
+      id: "014",
+      p_name: "美度（MIDO）瑞士手表 都瑞系列瑞士石英女士腕表 M033.210.11.031.00",
+      p_price: 3140,
+      p_img: "https://img12.360buyimg.com/n1/jfs/t1/144569/31/13427/87534/5fa50079Ee415fe48/f296c3b7d483ce73.jpg.avif",
+      p_descImg: ['https://img20.360buyimg.com/imgzone/jfs/t1/139291/37/30884/82401/64424d0cF24c013e0/59fa8e11478dad04.jpg.avif',
         'http://img30.360buyimg.com/popWareDetail/jfs/t1/134567/21/15132/66724/5fa4fd12E38caf5d2/5363ed521ff30967.jpg.avif',
         'https://img30.360buyimg.com/sku/jfs/t1/111260/5/18150/296017/6150389dE43d54239/57f9ef450a7656ab.jpg.avif',
         'http://img30.360buyimg.com/popWareDetail/jfs/t1/180139/23/14054/65843/60ee7380E5fe01434/a349665f9a7c31cf.jpg.avif',
@@ -243,14 +243,14 @@
         'http://img30.360buyimg.com/popWareDetail/jfs/t1/131799/32/14768/37615/5fa4fd12Eb8a5d5ac/88519e3413922f53.jpg.avif',
         'http://img30.360buyimg.com/popWareDetail/jfs/t1/129396/4/17432/50522/5fa4fd12E4428f05e/2dcdd5139dca1a6b.jpg.avif',
         'http://img30.360buyimg.com/popWareDetail/jfs/t1/137929/21/13488/163877/5fa4fd12Ea0f24aa7/4da009bece971623.jpg.avif'],
-        category: "女士精品表"
-      },
-      {
-        id: "015",
-        p_name: "美度（MIDO）花淅系列月相石英女士皮带手表瑞士腕表",
-        p_price: 7080,
-        p_img: "https://img11.360buyimg.com/n1/jfs/t1/123741/1/33388/51751/64648fa7F6dff6a10/f97312835678256e.jpg.avif",
-        p_descImg: ['http://img30.360buyimg.com/popWareDetail/jfs/t1/98816/37/36950/596327/646326b1F017d8b8c/698af66e113016af.gif',
+      category: "女士精品表"
+    },
+    {
+      id: "015",
+      p_name: "美度（MIDO）花淅系列月相石英女士皮带手表瑞士腕表",
+      p_price: 7080,
+      p_img: "https://img11.360buyimg.com/n1/jfs/t1/123741/1/33388/51751/64648fa7F6dff6a10/f97312835678256e.jpg.avif",
+      p_descImg: ['http://img30.360buyimg.com/popWareDetail/jfs/t1/98816/37/36950/596327/646326b1F017d8b8c/698af66e113016af.gif',
         'https://img10.360buyimg.com/imgzone/jfs/t1/72156/11/19011/59563/6463252dFa3d660a9/37a5a768bfe28860.jpg.avif',
         'https://img10.360buyimg.com/imgzone/jfs/t1/166878/30/38109/214248/64632533F4f2c1ce3/159dff3feab08f14.jpg.avif',
         'https://img10.360buyimg.com/imgzone/jfs/t1/61505/4/26760/230420/64632539F6faa770b/8852d5eca98a31ad.jpg.avif',
@@ -259,93 +259,351 @@
         'https://img10.360buyimg.com/imgzone/jfs/t1/109910/28/30223/40600/64632542F9a8e2c4b/8e6e81f0adfbe860.jpg.avif',
         'https://img10.360buyimg.com/imgzone/jfs/t1/220276/18/24616/33884/64632542F452333f3/8bf6a996889ca2f1.jpg.avif',
         'https://img10.360buyimg.com/imgzone/jfs/t1/162521/12/34287/50491/64632548Fbdcb1b29/8547b2da82643d19.jpg.avif'],
-        category: "女士精品表"
-      },
-    ]
-    localStorage.setItem('productList', JSON.stringify(productData))
+      category: "女士精品表"
+    },
+  ]
+  localStorage.setItem('productList', JSON.stringify(productData))
 
-    let message_list = [
-      [
-        {
-          'user': '測試對話1'
-        },
-        {
-          'ass': '回應1'
-        }
-      ],
-      [
-        {
-          'user': '測試對話2'
-        },
-        {
-          'ass': '回應2'
-        }
-      ],
-      [
-        {
-          'user': '測試對話3'
-        },
-        {
-          'ass': '回應3'
-        }
-      ],
-      [
-        {
-          'user': '測試對話4'
-        },
-        {
-          'ass': '回應4'
-        }
-      ],
-      [
-        {
-          'user': '測試對話5'
-        },
-        {
-          'ass': '回應5'
-        }
-      ],
-      [
-        {
-          'user': '測試對話6'
-        },
-        {
-          'ass': '回應6'
-        }
-      ],
-      [
-        {
-          'user': '測試對話7'
-        },
-        {
-          'ass': '回應7'
-        }
-      ],
-      [
-        {
-          'user': '測試對話8'
-        },
-        {
-          'ass': '回應8'
-        }
-      ],
-      [
-        {
-          'user': '測試對話9'
-        },
-        {
-          'ass': '回應9'
-        }
-      ],
-      [
-        {
-          'user': '測試對話10'
-        },
-        {
-          'ass': '回應10'
-        }
-      ]
+  let message_list = [
+    [
+      {
+        "user": "请问产品是否分福利品或展示机？"
+      },
+      {
+        "ass": "我们的产品不包含福利品或展示机。"
+      },
+      {
+        "user": "那所有产品都是全新的吗？"
+      },
+      {
+        "ass": "是的，我们保证所有产品都是全新的正品。"
+      },
+      {
+        "user": "有其他需要注意的事项吗？"
+      },
+      {
+        "ass": "如果还有其他问题，请随时向我提问。祝您购物愉快！"
+      }
+    ],
+    [
+      {
+        user: "请问产品是否有存货"
+      },
+      {
+        ass: "回答：是的，我们有库存。"
+      },
+      {
+        user: "那我可以下单购买吗？"
+      },
+      {
+        ass: "当然，您可以在我们的网站上下单购买。"
+      }
+    ],
+    [
+      {
+        "user": "请问产品的备货时间是多久？"
+      },
+      {
+        "ass": "通常需要1-3个工作日进行备货。"
+      },
+      {
+        "user": "如果我需要快速发货，是否有加急选项？"
+      },
+      {
+        "ass": "是的，我们提供加急配送选项，您可以选择快速发货。"
+      },
+      {
+        "user": "那加急配送需要额外支付费用吗？"
+      },
+      {
+        "ass": "是的，加急配送会有额外的快递费用，费用会根据配送地址和包裹重量而定。"
+      },
+      {
+        "user": "好的，谢谢您的解答！"
+      },
+      {
+        "ass": "不客气，如果还有其他问题，请随时向我提问。祝您购物愉快！"
+      }
+    ],
+    [
+      {
+        "user": "请问我可以挑选样式吗？"
+      },
+      {
+        "ass": "很抱歉，因为我们采取低价代购的模式，暂时无法提供挑选样式的选项。"
+      },
+      {
+        "user": "那样的话，我可以提前知道会收到哪种样式吗？"
+      },
+      {
+        "ass": "当您下单后，我们会尽可能为您提供相关的产品信息，但最终的样式将根据供应情况而定。"
+      },
+      {
+        "user": "好的，我明白了。这样的代购方式是否能保证产品质量？"
+      },
+      {
+        "ass": "我们会尽力为您采购高质量的产品，并进行严格的质量控制，以确保产品符合您的期望。"
+      },
+      {
+        "user": "非常感谢您的解答！"
+      },
+      {
+        "ass": "不客气，如果还有其他问题，请随时向我提问。祝您购物愉快！"
+      }
+    ],
+    [
+      {
+        "user": "我想了解一下是否有分福利品或展示机？"
+      },
+      {
+        "ass": "我们的产品不提供福利品或展示机。"
+      },
+      {
+        "user": "那么所有产品都是全新的吗？"
+      },
+      {
+        "ass": "是的，我们保证所有产品都是全新的正品。"
+      },
+      {
+        "user": "还有其他需要注意的事项吗？"
+      },
+      {
+        "ass": "如果还有其他问题，请随时向我提问。祝您购物愉快！"
+      }
+    ],
+    [
+      {
+        "user": "商品可以协助包装吗？"
+      },
+      {
+        "ass": "当然可以！我们提供专业的包装服务，确保产品在运输过程中安全无损。"
+      },
+      {
+        "user": "那包装费用是否额外收费？"
+      },
+      {
+        "ass": "包装费用已经包含在产品的价格中，无需额外付费。"
+      },
+      {
+        "user": "好的，谢谢您的回答！"
+      },
+      {
+        "ass": "非常感谢您的提问，如果还有其他问题，请随时告诉我。祝您购物愉快！"
+      }
+    ],
+    [
+      {
+        "user": "产品有品质保证吗？"
+      },
+      {
+        "ass": "是的，我们向您保证产品的品质。如果您对收到的产品有任何质量问题，请及时与我们联系。"
+      },
+      {
+        "user": "如果我购买的产品有不良情况，可以退货吗？"
+      },
+      {
+        "ass": "当然可以！如果您收到的产品有任何不良情况，您可以选择退货并获得全额退款。我们会尽力提供优质的售后服务。"
+      },
+      {
+        "user": "非常感谢！这让我更加放心购买。"
+      },
+      {
+        "ass": "非常感谢您的关注和支持。如果您还有其他问题或需求，请随时向我提问。祝您购物愉快！"
+      }
+    ],
+    [
+      {
+        "user": "有其他款式吗？"
+      },
+      {
+        "ass": "是的，我们的代购商城网站会陆续更新更多款式供您选择。您可以定期访问我们的网站以获取最新款式信息。"
+      },
+      {
+        "user": "这些款式都是现货吗？"
+      },
+      {
+        "ass": "是的，我们的代购商城网站上展示的款式都是现货供应。您可以放心购买，我们会尽快安排发货。"
+      },
+      {
+        "user": "如果我对现有款式不满意，可以退货吗？"
+      },
+      {
+        "ass": "当然可以！我们提供退货服务，具体退货政策请您在代购商城网站上查看或联系我们的客服咨询。"
+      },
+      {
+        "user": "非常感谢您的回答！我会经常关注代购商城网站的更新。"
+      },
+      {
+        "ass": "非常感谢您的关注和支持。如果您有任何其他问题，请随时向我提问。祝您在代购商城网站购物愉快！"
+      }
+    ],
+    [
+      {
+        "user": "有保固或保证书吗？"
+      },
+      {
+        "ass": "是的，我们提供产品保固或保证书。每个产品都配备相应的保固或保证书，以确保产品的质量和售后服务。"
+      },
+      {
+        "user": "保固或保证书的内容是什么？"
+      },
+      {
+        "ass": "保固或保证书的具体内容会根据产品类型和品牌而有所不同。一般来说，保固或保证书会包含产品的保修期限、售后服务信息以及保修范围等内容。您可以在购买产品时了解具体的保固或保证书内容。"
+      },
+      {
+        "user": "好的！"
+      },
+      {
+        "ass": "不客气，如果还有其他问题，请随时向我提问。祝您购物愉快！"
+      }
+    ],
+    [
+      {
+        "user": "我订购多项商品，是否可以一起出货？"
+      },
+      {
+        "ass": "因为商城内卖家众多，下单后会依照商品逐一进行检查，然后再进行出货。因此，并不保证多项商品会同时发货，每个商品的出货时间会根据具体情况而定。请您谅解。不过，我们提供免运费的服务，可以为您节省运费开支。"
+      },
+      {
+        "user": "那么，我不需要分多次支付运费了吗？"
+      },
+      {
+        "ass": "是的，由于我们提供免运费的服务，您不需要分多次支付运费。无论您订购多少商品，运费都将免费。这样可以为您带来更好的购物体验。"
+      },
+      {
+        "user": "明白了，非常感谢您的解答！"
+      },
+      {
+        "ass": "不客气，如果还有其他问题，请随时向我提问。祝您购物愉快！"
+      }
     ]
-    localStorage.setItem('message', JSON.stringify(message_list))
-  </script>
+  ]
+  localStorage.setItem('message', JSON.stringify(message_list))
+
+  let message_list_seller = [
+    [
+      {
+        'user': '测试对话1'
+      },
+      {
+        'ass': '回应1'
+      }
+    ],
+    [
+      {
+        user: "请问产品是否有存货"
+      },
+      {
+        ass: "回答：是的，我们有库存。"
+      },
+      {
+        user: "那我可以下单购买吗？"
+      },
+      {
+        ass: "当然，您可以在我们的网站上下单购买。"
+      }
+    ],
+    [
+      {
+        "user": "请问产品的备货时间是多久？"
+      },
+      {
+        "ass": "通常需要1-3个工作日进行备货。"
+      },
+      {
+        "user": "如果我需要快速发货，是否有加急选项？"
+      },
+      {
+        "ass": "是的，我们提供加急配送选项，您可以选择快速发货。"
+      },
+      {
+        "user": "那加急配送需要额外支付费用吗？"
+      },
+      {
+        "ass": "是的，加急配送会有额外的快递费用，费用会根据配送地址和包裹重量而定。"
+      },
+      {
+        "user": "好的，谢谢您的解答！"
+      },
+      {
+        "ass": "不客气，如果还有其他问题，请随时向我提问。祝您购物愉快！"
+      }
+    ],
+    [
+      {
+        "user": "请问我可以挑选样式吗？"
+      },
+      {
+        "ass": "很抱歉，因为我们采取低价代购的模式，暂时无法提供挑选样式的选项。"
+      },
+      {
+        "user": "那样的话，我可以提前知道会收到哪种样式吗？"
+      },
+      {
+        "ass": "当您下单后，我们会尽可能为您提供相关的产品信息，但最终的样式将根据供应情况而定。"
+      },
+      {
+        "user": "好的，我明白了。这样的代购方式是否能保证产品质量？"
+      },
+      {
+        "ass": "我们会尽力为您采购高质量的产品，并进行严格的质量控制，以确保产品符合您的期望。"
+      },
+      {
+        "user": "非常感谢您的解答！"
+      },
+      {
+        "ass": "不客气，如果还有其他问题，请随时向我提问。祝您购物愉快！"
+      }
+    ],
+    [
+      {
+        'user': '测试对话5'
+      },
+      {
+        'ass': '回应5'
+      }
+    ],
+    [
+      {
+        'user': '测试对话6'
+      },
+      {
+        'ass': '回应6'
+      }
+    ],
+    [
+      {
+        'user': '测试对话7'
+      },
+      {
+        'ass': '回应7'
+      }
+    ],
+    [
+      {
+        'user': '测试对话8'
+      },
+      {
+        'ass': '回应8'
+      }
+    ],
+    [
+      {
+        'user': '测试对话9'
+      },
+      {
+        'ass': '回应9'
+      }
+    ],
+    [
+      {
+        'user': '测试对话10'
+      },
+      {
+        'ass': '回应10'
+      }
+    ]
+  ]
+  localStorage.setItem('message_seller', JSON.stringify(message_list_seller))
+</script>
 {% endblock %}

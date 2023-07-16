@@ -246,9 +246,9 @@ def buyorder():
             "type": "進貨"
           }
         )
-      for doc in order_find:
-        print(doc)
-        order_data.append(doc)
+        for doc in order_find:
+          print(doc)
+          order_data.append(doc)
     if is_pay != '0' and is_pay != 'false' and is_pay != None:
       is_pay = 'true'
     elif is_pay == None:

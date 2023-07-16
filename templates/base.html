@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -27,12 +28,15 @@
             align-items: center;
             font-size: 12px;
         }
+
         .my-swal-container {
             width: 100%;
         }
+
         .my-swal-popup {
             width: 300px;
         }
+
         .my-swal-center {
             display: flex;
             align-items: center;
@@ -40,6 +44,11 @@
         }
     </style>
 </head>
+<!-- Start of btmarkethelp Zendesk Widget script -->
+<script id="ze-snippet"
+    src="https://static.zdassets.com/ekr/snippet.js?key=74045cea-a45a-4af8-93a1-c338f3891a5f"> </script>
+<!-- End of btmarkethelp Zendesk Widget script -->
+
 <body>
     <div class="header">
         <a href="/search">
@@ -47,13 +56,14 @@
                 <i class="fa-solid fa-bars"></i>
             </div>
         </a>
-        
+
         <div class="logo">
-            <img src="http://www.yishuzi.cn/image.png?fsize=30&font=hsjg.ttf&text=%E4%BC%98%E5%8A%BF%E7%82%B9&mirror=no&color=f16c4d&vcolor=f16c4d&bgcolor=fee8a5&alpha=no&output=png&spacing=4&shadow=no&transparent=no&icon=no&iconic=&top_spacing=5&left_spacing=6&icon_size=48"alt="">
+            <img src="http://www.yishuzi.cn/image.png?fsize=30&font=hsjg.ttf&text=%E4%BC%98%E5%8A%BF%E7%82%B9&mirror=no&color=f16c4d&vcolor=f16c4d&bgcolor=fee8a5&alpha=no&output=png&spacing=4&shadow=no&transparent=no&icon=no&iconic=&top_spacing=5&left_spacing=6&icon_size=48"
+                alt="">
         </div>
         <div class="space"></div>
     </div>
-    
+
 
 
 
@@ -67,29 +77,29 @@
 
 
 
-    
+
     {% if 'id' in session %}
-    <div class="menu-bar" >
+    <div class="menu-bar">
         <div class="item home_route" style="cursor: pointer;">
             <div class="img">
                 <img src="https://image.momoshop.com.tw/ecm/img/cmm/mobile/main/footer_01.svg" alt="">
             </div>
             <a href="/home">首页</a>
         </div>
-        <div class="item favor_route"  style="cursor: pointer;">
+        <div class="item favor_route" style="cursor: pointer;">
             <div class="img">
                 <img src="https://image.momoshop.com.tw/ecm/img/cmm/mobile/main/footer_03.svg" alt="">
             </div>
             <a href="/favor">追踪清单</a>
         </div>
         <div class="item cart_list" style="position: relative;">
-            <div class="cart_count">0</div>
+            <!-- <div class="cart_count">0</div> -->
             <div class="img">
                 <img src="https://image.momoshop.com.tw/ecm/img/cmm/mobile/main/footer_04.svg" alt="">
             </div>
             <a href="/cart">购物车</a>
         </div>
-        <div class="item profile_route " style="cursor: pointer;" >
+        <div class="item profile_route " style="cursor: pointer;">
             <div class="img">
                 <img src="https://image.momoshop.com.tw/ecm/img/cmm/mobile/menu_1-1.png" alt="">
                 <!-- <img src="https://image.momoshop.com.tw/ecm/img/cmm/mobile/main/footer_05.svg" alt=""> -->
@@ -97,7 +107,7 @@
             <a href="/buyorder">买家中心</a>
 
         </div>
-        <div class="item sell_profile"  style="cursor: pointer;" >
+        <div class="item sell_profile" style="cursor: pointer;">
             <div class="img">
                 <img src="https://image.momoshop.com.tw/ecm/img/cmm/mobile/menu_1-1.png" alt="">
                 <!-- <img src="https://image.momoshop.com.tw/ecm/img/cmm/mobile/main/footer_05.svg" alt=""> -->
@@ -115,31 +125,30 @@
         const favor_route = document.querySelector('.favor_route')
         const profile_route = document.querySelector('.buyorder_route')
         const sell_profile_route = document.querySelector('.sellorder_route')
-        cart_route.addEventListener('click',(e)=> {
+        cart_route.addEventListener('click', (e) => {
             location.href = '/cart'
         })
-        home_route.addEventListener('click',(e)=> {
+        home_route.addEventListener('click', (e) => {
             location.href = '/home'
         })
-        favor_route.addEventListener('click',(e)=> {
+        favor_route.addEventListener('click', (e) => {
             location.href = '/favor'
         })
-        profile_route.addEventListener('click',(e)=> {
+        profile_route.addEventListener('click', (e) => {
             location.href = '/buyorder'
         })
-        sell_profile_route.addEventListener('click',(e)=> {
+        sell_profile_route.addEventListener('click', (e) => {
             location.href = '/sellorder'
         })
-        function render_cart(){
-            let cart_list = JSON.parse(localStorage.getItem('cart')) || []
-            if (cart_list.length > 0) {
-                document.querySelector('.cart_count').textContent = cart_list.length
-            } else {
-                document.querySelector('.cart_count').textContent = 0
-            }
+        function render_cart() {
+            let cartCount = JSON.parse(localStorage.getItem('cartCount')) || 0;
+            const cartCountElement = document.querySelector('.cart_count');
+            cartCountElement.textContent = cartCount;
         }
-        render_cart()
+
+        render_cart();
     </script>
 
 </body>
+
 </html>

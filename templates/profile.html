@@ -513,7 +513,7 @@
       } else {
         html += `
           <div class="sender">
-            <p>賣家</p>
+            <p>卖家</p>
             <div class="content">
               ${item.ass}
             </div>
@@ -557,14 +557,14 @@
     const mineContent = document.createElement('div')
     mineContent.classList.add('content')
     mineContent.textContent = document.querySelector('.message-input input').value
-    // <div class="content">請問還有貨嗎?</div>
+    // <div class="content">请问还有货吗?</div>
 
     mineNode.appendChild(mineParagraph)
     mineNode.appendChild(mineContent)
     /*
       <div class="mine">
         <p>我</p>
-        <div class="content">請問還有貨嗎?</div>
+        <div class="content">请问还有货吗?</div>
       </div>
     */
     if (document.querySelector('.message-input input').value == '') return;
@@ -580,13 +580,13 @@
       // <div class="sender"></div>
 
       const senderParagraph = document.createElement('p');
-      senderParagraph.textContent = '賣家';
+      senderParagraph.textContent = '卖家';
       // <p>我</p>
 
       const senderContent = document.createElement('div');
       senderContent.classList.add('content');
       senderContent.textContent = '目前忙线中，稍后会有小编为您服务';
-      // <div class="content">請問還有貨嗎?</div>
+      // <div class="content">请问还有货吗?</div>
 
       senderNode.appendChild(senderParagraph);
       senderNode.appendChild(senderContent);
