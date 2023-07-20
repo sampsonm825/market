@@ -16,11 +16,42 @@ app.secret_key = os.urandom(24)
 app.permanent_session_lifetime = timedelta(minutes=60)
 app.config['SECRET_KEY'] = os.urandom(24)
 
+basedir = os.path.abspath(os.path.dirname(__file__))                 # 獲取當前檔案所在目錄
+UPLOAD_FOLDER = basedir+'/public/images'                           # 計算圖片檔案存放目錄
+ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}     # 設定可上傳圖片字尾 
 
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 connection_string = "mongodb+srv://samsonm825:g4zo1j6y94@cluster0.ow4o5g4.mongodb.net/?retryWrites=true&w=majority"
 client = MongoClient(connection_string)
 dbs = client.BT
 
+def allowed_file(filename):
+  return '.' in filename and \
+    filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
+@app.route('/upload_image', methods=['POST'])
+def upload():
+  if request.method == 'POST':
+    f = request.files['img']
+    name = session['id']
+    try:
+      if f and allowed_file(f.filename):
+        file_path = app.config['UPLOAD_FOLDER'] + f'/{name}'
+        if not os.path.exists(file_path):
+          os.makedirs(file_path)
+        f.save(os.path.join(file_path, f.filename.replace(' ', '')))
+        return jsonify({
+          "status": "success",
+          "imgUrl": f"/images/{name}/{f.filename.replace(' ', '')}"
+        })
+      else:
+        return jsonify({
+          "status": "faild"
+        })
+    except:
+      return jsonify({
+        "status": "faild"
+      })
 
 @app.route('/', methods=['GET', 'POST'])
 def index():

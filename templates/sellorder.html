@@ -381,10 +381,129 @@
     margin-bottom: 20px;
     cursor: pointer;
   }
+
+  .add-modal {
+    position: fixed;
+    top: 60px;
+    width: 100%;
+    max-width: 414px;
+    /* min-height: 100vh; */
+    max-height: calc(100vh);
+    background-color: #fff;
+    display: none;
+    z-index: 1002;
+    overflow-y: scroll;
+    padding-bottom: 100px;
+  }
+
+  .add-modal.show {
+    display: block;
+  }
+
+  .add-modal h2 {
+    font-size: 18px;
+    letter-spacing: 1.3px;
+    text-align: center;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    width: 95%;
+    margin: 0 auto;
+    margin-top: 10px;
+  }
+
+  .form-item {
+    width: 95%;
+    margin: 20px auto;
+  }
+
+  .form-item label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+
+  .form-item input {
+    padding: 3px 12px;
+  }
+
+  .upload_cover {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    text-align: center;
+    cursor: pointer;
+    background: #efefef;
+    border: 1px solid #595656;
+  }
+
+  #upload_input {
+    display: none;
+  }
+
+  .upload_icon {
+    font-weight: bold;
+    font-size: 180%;
+    position: absolute;
+    left: 50%;
+    width: 100%;
+    top: 50%;
+    transform: translate(-50%, -50%)
+  }
+
+  .add-data {
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    width: 95%;
+    margin: 20px auto;
+    border-radius: 10px;
+  }
+
+  .btn-group {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    width: 95%;
+    margin: 0 auto;
+  }
+
+  .btn-group button {
+    box-sizing: none;
+    border-radius: none;
+    border: none;
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+
+  .btn-group button:first-child {
+    background-color: #ab205b;
+    color: white;
+  }
+
+  .btn-group button:last-child {
+    background-color: blanchedalmond;
+    color: #777;
+    transition: .5s;
+  }
+
+  .btn-group button:last-child:hover {
+    background-color: rgb(127, 100, 61);
+    color: white;
+  }
+
+  .upload_cover {
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
 </style>
-<!-- Start of btmarkethelp Zendesk Widget script -->
-<script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=74045cea-a45a-4af8-93a1-c338f3891a5f"> </script>
-<!-- End of btmarkethelp Zendesk Widget script -->
+<!-- Start of btmarketsupport Zendesk Widget script -->
+<script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=5086af8d-1930-4e6d-a4d2-b82c09548ab1"> </script>
+<!-- End of btmarketsupport Zendesk Widget script -->
 
 {% endblock %}
 
@@ -430,6 +549,16 @@
       </li>
       <li>
         <div class="sellorder_route" style="cursor: pointer;">
+          <a href="/sellorder?status=2">
+            <div class="img">
+              <img src="https://image.momoshop.com.tw/ecm/img/cmm/mobile/menu_1-1.png" alt="">
+            </div>
+            待出售
+          </a>
+        </div>
+      </li>
+      <li>
+        <div class="sellorder_route" style="cursor: pointer;">
           <a href="/sellorder?status=0">
             <div class="img">
               <img src="https://image.momoshop.com.tw/ecm/img/cmm/mobile/menu_1-1.png" alt="">
@@ -445,6 +574,16 @@
               <img src="https://image.momoshop.com.tw/ecm/img/cmm/mobile/menu_1-1.png" alt="">
             </div>
             已完成
+          </a>
+        </div>
+      </li>
+      <li>
+        <div class="sellorder_route" style="cursor: pointer;">
+          <a href="javascript:;" class="add-btn">
+            <div class="img">
+              <img src="https://image.momoshop.com.tw/ecm/img/cmm/mobile/menu_1-1.png" alt="">
+            </div>
+            商品上架
           </a>
         </div>
       </li>
@@ -504,12 +643,45 @@
     <button type="button" class="sender" style="display: none">送出</button>
   </div>
 </div>
+<div class="add-modal">
+  <h2>商品上架</h2>
+  <div class="add-data">
+    <div class="form-item">
+      <label for="p-name">產品名稱:</label>
+      <input type="text" id="p-name">
+    </div>
+    <div class="form-item">
+      <label for="p-prcie">產品價格:</label>
+      <input type="number" id="p-price" min="0">
+    </div>
+    <div class="form-item">
+      <p style="font-weight: 500; margin-bottom: 10px">商品圖片上傳:</p>
+      <label for="upload_cover" class="upload_cover">
+        <input id="upload_cover" type="file" style="display:none">
+        <span class="upload_icon">➕</span>
+      </label>
+    </div>
+    <div class="form-item">
+      <p style="font-weight: 500; margin-bottom: 10px">商品內容圖片上傳:</p>
+      <label for="upload_cover_2" class="upload_cover">
+        <input id="upload_cover_2" type="file" style="display:none">
+        <span class="upload_icon">➕</span>
+      </label>
+    </div>
+    <div class="btn-group">
+      <button type="button" class="backpage">回上一頁</button>
+      <button type="button" class="submit">上架商品</button>
+    </div>
+  </div>
+</div>
+
 
 
 
 
 </div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"></script>
 <script>
   const messageBtn = document.querySelector('.profile-order')
   const message = document.querySelector('.message-modal')
@@ -517,6 +689,113 @@
   const message_close_btn = document.querySelector('.close')
   const message_mine_btn = document.querySelector('.message-input .mine')
   const message_sender_btn = document.querySelector('.message-input .sender')
+  const add_btn = document.querySelector('.add-btn')
+  const add_modal = document.querySelector('.add-modal')
+  const input_cover = document.querySelector('#upload_cover')
+  const input_cover_2 = document.querySelector('#upload_cover_2')
+  const input_name = document.querySelector('#p-name')
+  const input_price = document.querySelector('#p-price')
+  const send_btn = document.querySelector('.submit')
+  const close_btn = document.querySelector('.backpage')
+  let seller_product = JSON.parse(localStorage.getItem('seller_product')) || []
+  let seller_tempData = {}
+
+  function generateOrderID() {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, '0');  // JavaScript 的月份從 0 開始
+    const day = String(now.getDate()).padStart(2, '0');
+
+    const dateStr = year + month + day;
+
+    // 生成 18 位隨機數字，每次生成最多10位，避免超過 JavaScript 的 Number 精度
+    const randomNumStr = String(getRandomInt(1000000000, 9999999999)) + String(getRandomInt(1000000000, 9999999999));
+
+    return 'CH' + dateStr + randomNumStr;
+  }
+  function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min; //含上限，含下限
+  }
+
+
+  send_btn.addEventListener('click', (e) => {
+    seller_tempData.no = generateOrderID()
+    seller_product.push(seller_tempData)
+    localStorage.setItem('seller_product', JSON.stringify(seller_product))
+    input_cover.parentNode.style.backgroundImage = 'url()';
+    input_cover.nextElementSibling.textContent = ""
+    input_cover_2.parentNode.style.backgroundImage = 'url()';
+    input_cover_2.nextElementSibling.textContent = ""
+    input_price.value = 0
+    input_name.value = ''
+  })
+
+  input_name.addEventListener('change', (e) => {
+    seller_tempData.p_name = e.target.value
+  })
+  input_price.addEventListener('change', (e) => {
+    seller_tempData.p_price = e.target.value
+  })
+  close_btn.addEventListener('click', (e) => {
+    add_modal.classList.remove('show')
+    input_cover.parentNode.style.backgroundImage = 'url()';
+    input_cover.nextElementSibling.textContent = ""
+    input_cover_2.parentNode.style.backgroundImage = 'url()';
+    input_cover_2.nextElementSibling.textContent = ""
+    input_price.value = 0
+    input_name.value = ''
+  })
+  add_btn.addEventListener('click', (e) => {
+    add_modal.classList.add('show')
+  })
+  input_cover.addEventListener('change', (e) => {
+    let file = e.target.files[0]
+    let formData = new FormData();
+    formData.append('img', file);
+    axios.post('/upload_image', formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      }
+    })
+      .then(res => {
+        // 在這裡處理伺服器的響應
+        imgUrl = res.data.imgUrl
+        e.target.parentNode.style.backgroundImage = 'url(' + imgUrl + ')';
+        e.target.nextElementSibling.textContent = ""
+        seller_tempData.p_img = res.data.imgUrl
+      })
+      .catch(error => {
+        // 在這裡處理錯誤
+        console.error(error);
+      });
+  })
+  input_cover_2.addEventListener('change', (e) => {
+    let file = e.target.files[0]
+    let formData = new FormData();
+    formData.append('img', file);
+    axios.post('/upload_image', formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      }
+    })
+      .then(res => {
+        // 在這裡處理伺服器的響應
+        imgUrl = res.data.imgUrl
+        e.target.parentNode.style.backgroundImage = 'url(' + imgUrl + ')';
+        e.target.nextElementSibling.textContent = ""
+        seller_tempData.p_desc_img = res.data.imgUrl
+      })
+      .catch(error => {
+        // 在這裡處理錯誤
+        console.error(error);
+      });
+  })
+
+
+
+  
   let messageList = JSON.parse(localStorage.getItem('message_seller')) || []
   function setMessaage(index) {
     const message_content = document.querySelector('.message-content')
@@ -648,7 +927,46 @@
 
 
   })
+  if ('{{ is_fake }}' == 'true') {
+    seller_product = JSON.parse(localStorage.getItem('seller_product')) || []
+    if (seller_product.length > 0) {
+      const no_more = document.querySelector('.no-more')
+      no_more.style.display = 'none'
+    }
+    console.log(seller_product)
+    function pushOrderList(order, index) {
+      let total_price = 0
+      let html = `
+      <div class="profile-order-item">
+        <div class="order-no">
+          <p>${order.no}</p>
+          <span>未售出</span>
+        </div>
+      `;
+      html += `
+        <div class="order-title">
+          <h4>${order.p_name}</h4>
+        </div>
+        <div class="img-group">
+          <img src="${order.p_img}" alt="">
+        </div>
+      `
+      html += `
+        <div class="price">
+            <p>¥${order.p_price}</p>
+        </div>
+      `
 
+      const profile_order = document.querySelector('.profile-order');
+
+      profile_order.insertAdjacentHTML('afterbegin', html);
+    }
+    seller_product.forEach((order, index) => {
+      pushOrderList(order, index)
+    })
+
+
+  }
 
 
 </script>
@@ -659,6 +977,7 @@
     search_input.classList.toggle('show')
   })
 </script>
+
 
 
 {% endblock %}
