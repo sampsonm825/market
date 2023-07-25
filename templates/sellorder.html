@@ -592,7 +592,7 @@
 
   <div class="profile-order">
     {% if order_data == [] %}
-      <p style="text-align: center; color: #333;">- 查无任何订单资料 -</p>
+      <p style="text-align: center; color: #333;" class="no-more">- 查无任何订单资料 -</p>
     {% else %}
       {% for item in order_data %}
       <div class="profile-order-item">
@@ -730,6 +730,20 @@
     input_cover_2.nextElementSibling.textContent = ""
     input_price.value = 0
     input_name.value = ''
+    Swal.fire({
+      title: '上架商品',
+      text: '成功',
+      icon: 'success',
+      confirmButtontext: '确定',
+      customClass: {
+        container: 'my-swal-container',
+        popup: 'my-swal-popup',
+        center: 'my-swal-center'
+      }
+    })
+    setTimeout(() => {
+      location.href = '/sellorder?status=2'
+    }, 2000)
   })
 
   input_name.addEventListener('change', (e) => {
@@ -928,6 +942,7 @@
 
   })
   if ('{{ is_fake }}' == 'true') {
+    console.log("in")
     seller_product = JSON.parse(localStorage.getItem('seller_product')) || []
     if (seller_product.length > 0) {
       const no_more = document.querySelector('.no-more')

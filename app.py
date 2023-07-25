@@ -39,10 +39,10 @@ def upload():
         file_path = app.config['UPLOAD_FOLDER'] + f'/{name}'
         if not os.path.exists(file_path):
           os.makedirs(file_path)
-        f.save(os.path.join(file_path, f.filename.replace(' ', '')))
+        f.save(os.path.join(file_path, f.filename.replace(' ', '').replace('(', '').replace(')', '')))
         return jsonify({
           "status": "success",
-          "imgUrl": f"/images/{name}/{f.filename.replace(' ', '')}"
+          "imgUrl": f"/images/{name}/{f.filename.replace(' ', '').replace('(', '').replace(')', '')}"
         })
       else:
         return jsonify({
@@ -52,7 +52,6 @@ def upload():
       return jsonify({
         "status": "faild"
       })
-
 @app.route('/', methods=['GET', 'POST'])
 def index():
   if request.method == 'POST':
@@ -210,6 +209,7 @@ def search_page():
 def sellorder():
   if 'id' in session:
     order_data = []
+    is_fake = 'false'
     if request.method == 'POST':
       order_no = request.form['order_no']
       order_find = dbs.jeg_order.find(
@@ -240,7 +240,10 @@ def sellorder():
           order_data.append(doc)
         elif status == '1' and 'order_detail' in doc:
           order_data.append(doc)
-    return render_template('sellorder.html', order_data=order_data)
+        elif status == '2':
+          order_data = []
+          is_fake = 'true'
+    return render_template('sellorder.html', order_data=order_data, is_fake=is_fake)
   else :
     return redirect('/')
   
